@@ -9,11 +9,10 @@ export const Container = styled.div`
   height: 48px;
   background-color: #fee500;
   border-radius: 6px;
-  > p {
-    font-size: 16px;
-  }
+  font-size: 16px;
 `;
 
 export const Icon = styled.img`
   position: absolute;
+  left: 20px;
 `;

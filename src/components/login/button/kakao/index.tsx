@@ -1,9 +1,9 @@
-import { Container } from './styles';
+import { Container, Icon } from './styles';
 
 const KakaoButton = () => (
   <Container>
     카카오톡 로그인
-    <img src="/image/kakao.svg" alt="kakao" />
+    <Icon src="/image/kakao.svg" alt="kakao" />
   </Container>
 );
 

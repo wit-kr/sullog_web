@@ -9,17 +9,12 @@ const Wrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
   max-width: 500px;
-  /* iOS only */
-  @supports (-webkit-touch-callout: none) {
-    height: -webkit-fill-available;
-  }
+  height: 100vh;
 `;
 
 const Description = styled.p`
   margin-top: 16px;
-  padding-bottom: 7.75vh;
   text-align: center;
   font-family: 'NotoSansKR';
   color: #bbb;
@@ -52,7 +47,7 @@ const Slogan = styled.img`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 28.75vh;
+  margin-top: 31.75vh;
   > div:first-child {
     margin-bottom: 8px;
   }

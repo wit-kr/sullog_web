@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* iOS only */
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available;
+    }
     font-family: -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'NotoSansKR';
   }
 `;

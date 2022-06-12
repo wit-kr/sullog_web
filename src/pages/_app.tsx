@@ -1,12 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import type { AppProps } from 'next/app';
+import GlobalStyle from 'styles/GlobalStyle';
+import '@public/fonts/style.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <Component {...pageProps} />
+  <>
+    <GlobalStyle />
+    <Component {...pageProps} />
+  </>
 );
 
 export default MyApp;
-// v1/api/alchols 2990 + 10
-
-// useInfiniteQuery()
-// intersectionObserver

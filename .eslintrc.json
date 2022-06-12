@@ -17,6 +17,8 @@
     "prettier/prettier": "error",
     "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".ts", ".js"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".ts", ".js"] }],
+    "import/no-unresolved": "off",
+    "import/extensions": "off"
   }
 }

@@ -10,11 +10,12 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 500px;
-  height: 100vh;
+  height: 100%;
 `;
 
 const Description = styled.p`
-  margin-top: 16px;
+  position: absolute;
+  bottom: 8vh;
   text-align: center;
   font-family: 'NotoSansKR';
   color: #bbb;
@@ -37,7 +38,7 @@ const Description = styled.p`
 `;
 
 const Logo = styled.img`
-  margin-top: 35vh;
+  margin-top: 31vh;
 `;
 
 const Slogan = styled.img`
@@ -45,12 +46,14 @@ const Slogan = styled.img`
 `;
 
 const ButtonContainer = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
-  margin-top: 31.75vh;
+  bottom: 14.5vh;
   > div:first-child {
     margin-bottom: 8px;
   }
+  margin-bottom: 16px;
 `;
 
 const Home: NextPage = () => (

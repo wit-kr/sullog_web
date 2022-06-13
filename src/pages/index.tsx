@@ -8,8 +8,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  position: absolute;
   width: 100%;
   max-width: 500px;
+  height: 100%;
 `;
 
 const Description = styled.p`
@@ -19,6 +21,7 @@ const Description = styled.p`
   font-size: 1.1rem;
   font-weight: 350;
   line-height: 1.6rem;
+  white-space: pre-line;
   button {
     font-family: 'NotoSansKR';
     font-size: 1.1rem;
@@ -45,8 +48,7 @@ const Slogan = styled.img`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 23.75vh;
-  margin-top: 30vh;
+  margin-top: auto;
   > div:first-child {
     margin-bottom: 8px;
   }
@@ -64,8 +66,7 @@ const Home: NextPage = () => (
     <Description>
       첫 로그인시&nbsp;
       <button type="button">이용약관</button>
-      &nbsp;및
-      <br />
+      {' 및\n'}
       <button type="button">개인정보처리방침</button>
       &nbsp;동의로 간주됩니다.
     </Description>

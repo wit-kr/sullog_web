@@ -35,7 +35,7 @@ const Description = styled.p`
 `;
 
 const Logo = styled.img`
-  margin-top: 27vh;
+  margin-top: 31vh;
 `;
 
 const Slogan = styled.img`
@@ -46,6 +46,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 23.75vh;
+  margin-top: 30vh;
   > div:first-child {
     margin-bottom: 8px;
   }

@@ -7,8 +7,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   max-width: 500px;
   height: 100%;
@@ -16,16 +17,16 @@ const Wrapper = styled.div`
 
 const Description = styled.p`
   text-align: center;
-  font-family: 'NotoSansKR';
   color: #bbb;
   font-size: 1.1rem;
-  font-weight: 350;
+  font-weight: 300;
   line-height: 1.6rem;
   white-space: pre-line;
   button {
     font-family: 'NotoSansKR';
     font-size: 1.1rem;
     font-weight: bold;
+    line-height: 1.6rem;
     color: #bbbbbb;
     border: none;
     -webkit-appearance: none;
@@ -49,7 +50,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: auto;
-  > div:first-child {
+  > div:first-of-type {
     margin-bottom: 8px;
   }
   margin-bottom: 16px;

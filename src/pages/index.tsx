@@ -10,12 +10,9 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 500px;
-  height: 100%;
 `;
 
 const Description = styled.p`
-  position: absolute;
-  bottom: 8vh;
   text-align: center;
   font-family: 'NotoSansKR';
   color: #bbb;
@@ -38,7 +35,7 @@ const Description = styled.p`
 `;
 
 const Logo = styled.img`
-  margin-top: 31vh;
+  margin-top: 27vh;
 `;
 
 const Slogan = styled.img`
@@ -46,10 +43,9 @@ const Slogan = styled.img`
 `;
 
 const ButtonContainer = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
-  bottom: 14.5vh;
+  margin-top: 23.75vh;
   > div:first-child {
     margin-bottom: 8px;
   }

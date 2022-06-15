@@ -1,5 +1,5 @@
-import KakaoButton from '@components/login/button/kakao';
-import NaverButton from '@components/login/button/naver';
+import KakaoButton from '@components/domain/login/button/kakao';
+import NaverButton from '@components/domain/login/button/naver';
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 

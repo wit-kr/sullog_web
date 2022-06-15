@@ -6,7 +6,8 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 330px;
+  width: 91.6vw;
+  max-width: 500px;
   height: 48px;
   background-color: #03c75a;
   border-radius: 6px;

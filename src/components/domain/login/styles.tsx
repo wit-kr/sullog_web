@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
     margin-top: 31vh;
   }
   > div:last-child {
-    margin-bottom: 8.1vh;
+    margin-bottom: 4vh;
   }
 `;
 

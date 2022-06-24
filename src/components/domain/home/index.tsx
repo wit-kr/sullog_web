@@ -6,7 +6,11 @@ const Home = () => {
       ? process.env.MAPBOX_TOKEN?.replace(/ /g, '')
       : process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(/ /g, '');
 
-  console.log(process.env, mapboxAccessToken);
+  console.log(
+    process.env.NODE_ENV,
+    process.env.MAPBOX_TOKEN,
+    process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+  );
 
   return (
     <h1>

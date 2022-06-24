@@ -1,6 +1,11 @@
 import Map from 'react-map-gl';
 import { MAPBOX_TOKEN } from 'shared/key';
 
+const mapboxAccessToken =
+  process.env.NODE_ENV === 'development'
+    ? MAPBOX_TOKEN
+    : process.env.MAPBOX_TOKEN;
+
 const Home = () => (
   <h1>
     <Map
@@ -14,7 +19,7 @@ const Home = () => (
         height: 400,
       }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
-      mapboxAccessToken={MAPBOX_TOKEN}
+      mapboxAccessToken={mapboxAccessToken}
     />
   </h1>
 );

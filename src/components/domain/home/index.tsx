@@ -1,10 +1,11 @@
 import Map from 'react-map-gl';
 
 const Home = () => {
-  const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(
-    / /g,
-    ''
-  );
+  const mapboxAccessToken =
+    process.env.NODE_ENV === 'production'
+      ? process.env.MAPBOX_TOKEN
+      : process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(/ /g, '');
+
   return (
     <h1>
       <Map

@@ -1,6 +1,6 @@
-import Login from '@components/domain/login';
+import Home from '@components/domain/home';
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => <Login />;
+const HomePage: NextPage = () => <Home />;
 
-export default Home;
+export default HomePage;

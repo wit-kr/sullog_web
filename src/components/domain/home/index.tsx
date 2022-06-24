@@ -3,8 +3,13 @@ import Map from 'react-map-gl';
 const Home = () => {
   const mapboxAccessToken =
     process.env.NODE_ENV === 'production'
-      ? process.env.MAPBOX_TOKEN
+      ? process.env.MAPBOX_TOKEN?.replace(/ /g, '')
       : process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(/ /g, '');
+
+  console.log(
+    '🚀 ~ file: index.tsx ~ line 5 ~ Home ~ mapboxAccessToken',
+    mapboxAccessToken
+  );
 
   return (
     <h1>

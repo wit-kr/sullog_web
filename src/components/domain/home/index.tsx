@@ -6,10 +6,7 @@ const Home = () => {
       ? process.env.MAPBOX_TOKEN?.replace(/ /g, '')
       : process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(/ /g, '');
 
-  console.log(
-    '🚀 ~ file: index.tsx ~ line 5 ~ Home ~ mapboxAccessToken',
-    mapboxAccessToken
-  );
+  console.log(process.env, mapboxAccessToken);
 
   return (
     <h1>

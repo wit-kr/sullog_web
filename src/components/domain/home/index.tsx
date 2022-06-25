@@ -2,7 +2,7 @@
 import { useCallback, useRef } from 'react';
 import ReactMapGL, { MapRef } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Layer, SymbolLayout } from 'mapbox-gl';
+import { Layer } from 'mapbox-gl';
 
 const Home = () => {
   const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(

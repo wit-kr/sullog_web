@@ -1,6 +1,7 @@
 import { useCallback, useRef } from 'react';
 import ReactMapGL, { MapRef } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { Layer, SymbolLayout } from 'mapbox-gl';
 
 const Home = () => {
   const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(
@@ -13,8 +14,8 @@ const Home = () => {
   const onMapLoad = useCallback(() => {
     if (mapRef.current) {
       const map = mapRef.current.getMap();
-      map.getStyle().layers.forEach((layer) => {
-        if (layer?.layout && layer?.layout['text-field']) {
+      map.getStyle().layers.forEach((layer: Layer) => {
+        if (layer?.layout && (layer.layout as SymbolLayout['text-field'])) {
           map.setLayoutProperty(layer.id, 'text-field', [
             'coalesce',
             ['get', 'name_ko'],

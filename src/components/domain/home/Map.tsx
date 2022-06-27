@@ -1,5 +1,5 @@
 import { useRef, useCallback } from 'react';
-import { Layer } from 'mapbox-gl';
+import { Layer, LngLatBoundsLike } from 'mapbox-gl';
 import ReactMapGL, { MapRef } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -11,7 +11,7 @@ const Map = () => {
 
   const mapRef = useRef<MapRef>(null);
 
-  const onMapLoad = useCallback(() => {
+  const handleOnMapLoad = useCallback(() => {
     if (mapRef.current) {
       const map = mapRef.current.getMap();
       map.getStyle().layers.forEach((layer: Layer) => {
@@ -29,10 +29,21 @@ const Map = () => {
     }
   }, []);
 
+  const maxBounds = [
+    {
+      lat: 32.671017,
+      lng: 125.301356,
+    },
+    {
+      lat: 39.224702,
+      lng: 129.693625,
+    },
+  ];
+
   return (
     <ReactMapGL
       ref={mapRef}
-      onLoad={onMapLoad}
+      onLoad={handleOnMapLoad}
       initialViewState={{
         longitude: 126.977966,
         latitude: 37.566536,
@@ -44,6 +55,7 @@ const Map = () => {
       }}
       mapStyle="mapbox://styles/mapbox/light-v10"
       mapboxAccessToken={mapboxAccessToken}
+      maxBounds={maxBounds as LngLatBoundsLike}
     />
   );
 };

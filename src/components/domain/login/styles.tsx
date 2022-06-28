@@ -45,10 +45,15 @@ export const Description = styled.p`
   }
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+  width: 46vw;
+  max-width: 180px;
+  height: auto;
+`;
 
 export const Slogan = styled.img`
-  width: 98px;
+  width: 36vw;
+  max-width: 140px;
   margin-top: 12px;
 `;
 

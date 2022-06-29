@@ -17,8 +17,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'NotoSansKR', -apple-system, BlinkMacSystemFont, system-ui, Roboto;
   }
-  .button {
-    font-family: 'NotoSansKR';
+  button {
+    all: unset;
   }
 `;
 

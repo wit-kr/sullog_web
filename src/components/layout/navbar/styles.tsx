@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 8.1vh;
-  background-color: yellow;
+  background-color: #fff;
   > div:first-child {
     display: flex;
     flex-direction: row;

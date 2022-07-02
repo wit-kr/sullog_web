@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-unused-vars */
 import { useRef, useCallback, useState, useEffect } from 'react';
 import { LngLatBoundsLike, Style } from 'mapbox-gl';
@@ -45,24 +46,42 @@ const visibility: {
   [key: string]: boolean;
 } = {
   water: true,
-  parks: true,
-  buildings: true,
-  roads: true,
+  parks: false,
+  buildings: false,
+  roads: false,
   labels: true,
   background: true,
 };
+
+const labelWhiteLists = [
+  'hillshade',
+  'airport-label',
+  'poi-label',
+  'settlement-subdivision-label',
+];
 
 const Map = () => {
   const [mapStyle, setMapStyle] = useState(MAP_STYLE);
 
   useEffect(() => {
     const { layers } = mapStyle;
-    const modifiedLayers = layers.filter((layer) => {
+
+    const selectedLayers = layers.filter((layer) => {
       const { id } = layer;
       return categories.every(
         (name) => visibility[name] || !layerSelector[name].test(id)
       );
     });
+
+    const whiteListedLayers = selectedLayers.filter((layer) => {
+      const { id } = layer;
+      return !labelWhiteLists.includes(id);
+    });
+
+    setMapStyle((prev) => ({
+      ...prev,
+      layers: whiteListedLayers,
+    }));
   }, [mapStyle]);
 
   return (

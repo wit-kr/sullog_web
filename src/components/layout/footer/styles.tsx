@@ -4,13 +4,13 @@ export const Container = styled.div`
   position: relative;
   bottom: 0;
   width: 100%;
-  > div {
+  /* > div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 50px;
     margin-bottom: 4vh;
-  }
+  } */
 `;
 
 export const Background = styled.img`

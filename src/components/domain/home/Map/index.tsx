@@ -1,14 +1,20 @@
-import { useRef, useCallback } from 'react';
+/* eslint-disable no-unused-vars */
+import { useRef, useCallback, useState, useEffect } from 'react';
 import { Layer, LngLatBoundsLike } from 'mapbox-gl';
 import ReactMapGL, { MapRef } from 'react-map-gl';
+import { fromJS } from 'immutable';
+
+import MAP_STYLE from './map-style-light-v10.json';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const Map = () => {
-  const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(
-    / /g,
-    ''
-  );
+const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(
+  / /g,
+  ''
+);
 
+const defaultMapStyle: any = fromJS(MAP_STYLE);
+
+const Map = () => {
   const mapRef = useRef<MapRef>(null);
 
   const handleOnMapLoad = useCallback(() => {
@@ -32,10 +38,10 @@ const Map = () => {
   const maxBounds = [
     {
       lat: 32.671017,
-      lng: 125.301356,
+      lng: 125.801356,
     },
     {
-      lat: 39.224702,
+      lat: 38.724702,
       lng: 129.693625,
     },
   ];
@@ -51,9 +57,9 @@ const Map = () => {
       }}
       style={{
         width: '100vw',
-        height: 400,
+        height: '100vh',
       }}
-      mapStyle="mapbox://styles/mapbox/light-v10"
+      mapStyle={defaultMapStyle}
       mapboxAccessToken={mapboxAccessToken}
       maxBounds={maxBounds as LngLatBoundsLike}
     />

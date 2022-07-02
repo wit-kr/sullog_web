@@ -5931,7 +5931,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6028,7 +6028,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6110,7 +6110,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6203,7 +6203,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6331,7 +6331,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6417,7 +6417,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6511,7 +6511,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -6614,7 +6614,7 @@
                         "coalesce",
                         [
                             "get",
-                            "name_en"
+                            "name_ko"
                         ],
                         [
                             "get",
@@ -6667,7 +6667,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -7220,7 +7220,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",
@@ -7331,7 +7331,7 @@
                             "coalesce",
                             [
                                 "get",
-                                "name_en"
+                                "name_ko"
                             ],
                             [
                                 "get",
@@ -7347,7 +7347,7 @@
                             ],
                             [
                                 "get",
-                                "name_en"
+                                "name_ko"
                             ],
                             [
                                 "get",
@@ -7360,7 +7360,7 @@
                         "coalesce",
                         [
                             "get",
-                            "name_en"
+                            "name_ko"
                         ],
                         [
                             "get",
@@ -7583,7 +7583,7 @@
                     "coalesce",
                     [
                         "get",
-                        "name_en"
+                        "name_ko"
                     ],
                     [
                         "get",

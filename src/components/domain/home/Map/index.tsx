@@ -15,26 +15,6 @@ const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(
 const defaultMapStyle: any = fromJS(MAP_STYLE);
 
 const Map = () => {
-  const mapRef = useRef<MapRef>(null);
-
-  const handleOnMapLoad = useCallback(() => {
-    if (mapRef.current) {
-      const map = mapRef.current.getMap();
-      map.getStyle().layers.forEach((layer: Layer) => {
-        if (
-          layer.layout &&
-          Object.prototype.hasOwnProperty.call(layer.layout, 'text-field')
-        ) {
-          map.setLayoutProperty(layer.id, 'text-field', [
-            'coalesce',
-            ['get', 'name_ko'],
-            ['get', 'name'],
-          ]);
-        }
-      });
-    }
-  }, []);
-
   const maxBounds = [
     {
       lat: 32.671017,
@@ -48,8 +28,6 @@ const Map = () => {
 
   return (
     <ReactMapGL
-      ref={mapRef}
-      onLoad={handleOnMapLoad}
       initialViewState={{
         longitude: 126.977966,
         latitude: 37.566536,

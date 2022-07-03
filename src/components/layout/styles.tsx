@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
   background-color: skyblue;
   display: flex;
   flex-direction: column;
@@ -14,4 +14,8 @@ const Container = styled.div`
   height: 100%;
 `;
 
-export default Container;
+export const PlusButton = styled.button`
+  position: absolute;
+  bottom: 60px;
+  font-size: 1rem;
+`;

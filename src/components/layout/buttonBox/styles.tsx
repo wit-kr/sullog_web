@@ -6,12 +6,15 @@ export const Container = styled.div`
   gap: 0px;
   align-items: end;
   width: 100%;
+  height: 102px;
 `;
 
 export const FirstBox = styled.div`
   background-color: #fff;
-  height: 102px;
+  height: 100%;
   border-radius: 6px 6px 0 6px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const SecondBox = styled.div`
@@ -27,4 +30,13 @@ export const ThirdBox = styled.div`
   background-color: #fff;
   height: 100%;
   border-radius: 6px 6px 6px 0;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Button = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2vh;
 `;

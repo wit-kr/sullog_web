@@ -12,6 +12,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
       />
+      <meta name="theme-color" content="#3E14B4" />
       <title>sullog</title>
     </Head>
     <GlobalStyle />

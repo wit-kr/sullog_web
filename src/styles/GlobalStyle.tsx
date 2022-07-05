@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
+    background-color: #3E14B4;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -16,6 +17,9 @@ const GlobalStyle = createGlobalStyle`
     }
     box-sizing: border-box;
     font-family: 'NotoSansKR', -apple-system, BlinkMacSystemFont, system-ui, Roboto;
+  }
+  button {
+    all: unset;
   }
   .button {
     font-family: 'NotoSansKR';

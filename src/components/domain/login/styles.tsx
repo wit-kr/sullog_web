@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  background-color: #3e14b4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,19 +36,13 @@ export const Description = styled.p`
     font-weight: bold;
     line-height: 1.6rem;
     color: #bbbbbb;
-    border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: none;
-    padding: 0;
-    background-color: transparent;
   }
 `;
 
 export const Logo = styled.img`
-  width: 46vw;
-  max-width: 180px;
+  width: 38.8vw;
+  max-width: 150px;
+  margin-left: 15px;
   height: auto;
 `;
 
@@ -60,7 +55,7 @@ export const Slogan = styled.img`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  > div:first-of-type {
+  > button:first-of-type {
     margin-bottom: 8px;
   }
   margin-bottom: 16px;

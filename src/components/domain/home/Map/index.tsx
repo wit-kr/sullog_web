@@ -1,5 +1,6 @@
 import { LngLatBoundsLike } from 'mapbox-gl';
 import ReactMapGL from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.replace(
   / /g,

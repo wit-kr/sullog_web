@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
   .button {
     font-family: 'NotoSansKR';
   }
+  
+  .mapboxgl-control-container {
+    display: none;
+  }
 `;
 
 export default GlobalStyle;

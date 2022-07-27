@@ -6,9 +6,6 @@ import Head from 'next/head';
 import { NextPage } from "next";
 import { ReactElement, ReactNode, useEffect, useState } from "react";
 
-import 'styles/temp.css';
-
-
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
 };

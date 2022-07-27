@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
+    overflow: hidden;
     background-color: #f1f1f1;
     margin: 0;
     padding: 0;
@@ -19,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'NotoSansKR', -apple-system, BlinkMacSystemFont, system-ui, Roboto;
   }
   button {
+    all: unset;
+  }
+  input {
     all: unset;
   }
   .button {

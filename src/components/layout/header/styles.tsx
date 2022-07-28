@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
@@ -24,7 +24,6 @@ export const HamburgerButton = styled.button`
 `;
 
 export const Hamburger = styled.img`
-  
   width: 5.5vw;
   max-width: 25px;
   height: auto;

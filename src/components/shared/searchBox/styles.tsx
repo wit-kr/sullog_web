@@ -8,7 +8,7 @@ export const Container = styled.div`
   border-radius: 30px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
-`
+`;
 
 export const Wrapper = styled.div`
   display: flex;

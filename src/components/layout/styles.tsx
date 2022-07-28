@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   position: absolute;
   z-index: 99;
   left: 50%;
@@ -15,3 +15,5 @@ export const Container = styled.div`
     height: -webkit-fill-available;
   }
 `;
+
+export default Container;

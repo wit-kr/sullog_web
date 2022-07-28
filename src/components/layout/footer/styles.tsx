@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   background-color: #fff;
@@ -51,7 +51,7 @@ export const WriteButton = styled.button`
   max-width: 65px;
   height: 18vw;
   max-height: 65px;
-  background-color: #3E14B4;
+  background-color: #3e14b4;
   border-radius: 50%;
   bottom: 44px;
   color: white;

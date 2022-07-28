@@ -8,10 +8,6 @@ import Map from './Map';
 //   min-height: 100vh;
 // `;
 
-const Home = () => (
-  <div>
-    {/* <Map /> */}
-  </div>
-);
+const Home = () => <div>{/* <Map /> */}</div>;
 
 export default Home;

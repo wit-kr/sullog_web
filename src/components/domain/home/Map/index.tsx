@@ -27,7 +27,7 @@ const Map = () => {
         zoom: 10,
       }}
       style={{
-        width: '100%',
+        maxWidth: '500px',
         height: '100vh',
       }}
       mapStyle="mapbox://styles/jinho1011/cl5faqrml00dv15qvknh8tres"

@@ -8,10 +8,6 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-const Home = () => (
-  <Container>
-    <Map />
-  </Container>
-);
+const Home = () => <div>{/* <Map /> */}</div>;
 
 export default Home;

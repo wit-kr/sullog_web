@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
+    overflow: hidden;
     background-color: #f1f1f1;
     margin: 0;
     padding: 0;
@@ -21,8 +22,15 @@ const GlobalStyle = createGlobalStyle`
   button {
     all: unset;
   }
+  input {
+    all: unset;
+  }
   .button {
     font-family: 'NotoSansKR';
+  }
+  
+  .mapboxgl-control-container {
+    display: none;
   }
 `;
 

@@ -18,14 +18,15 @@ export const Wrapper = styled.div`
   padding: 10px 24px;
 `;
 
-export const Box = styled.div`
+export const SearchButton = styled.button`
+  cursor: grab;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  width: 42vw;
 `;
 
-export const SearchInput = styled.input`
+export const SearchText = styled.p`
+  font-family: 'NotoSansKRRegular';
   font-size: 1.4rem;
   color: #ccc;
   margin-left: 6px;

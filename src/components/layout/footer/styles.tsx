@@ -25,11 +25,15 @@ export const SettingButton = styled.button`
   cursor: grab;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'NotoSansKRRegular';
+  font-size: 1.2rem;
   text-align: center;
   > img {
-    width: 6.4vw;
+    width: 4vw;
     max-width: 25px;
-    height: auto;
+    margin-bottom: 5px;
   }
 `;
 
@@ -37,7 +41,16 @@ export const RecommendButton = styled.button`
   cursor: grab;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'NotoSansKRRegular';
+  font-size: 1.2rem;
   text-align: center;
+  > img {
+    width: 4vw;
+    max-width: 20px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const WriteButton = styled.button`
@@ -55,10 +68,12 @@ export const WriteButton = styled.button`
   border-radius: 50%;
   bottom: 44px;
   color: white;
+  font-family: 'NotoSansKRRegular';
   font-size: 12px;
   > img {
     width: 4vw;
     max-width: 15px;
     height: auto;
+    margin-bottom: 5px;
   }
 `;

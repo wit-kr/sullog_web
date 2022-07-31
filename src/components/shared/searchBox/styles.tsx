@@ -18,27 +18,24 @@ export const Wrapper = styled.div`
   padding: 7px 24px;
 `;
 
+export const SearchButton = styled.button`
+  cursor: grab;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70vw;
+  max-width: 400px;
+`;
+
 export const SearchIcon = styled.img`
   margin-right: 5px;
 `;
 
-export const SearchInput = styled.input`
-  cursor: grab;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
-  max-width: 400px;
+export const SearchButtonTitle = styled.p`
   font-family: 'NotoSansKRRegular';
   font-size: 1.4rem;
   line-height: 2.6rem;
-  ::placeholder {
-    font-family: 'NotoSansKRRegular';
-    font-size: 1.4rem;
-    color: #ccc;
-    margin-left: 6px;
-  }
+  color: #ccc;
 `;
 
 export const FilterButton = styled.button`

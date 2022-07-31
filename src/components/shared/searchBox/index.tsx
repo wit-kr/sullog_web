@@ -1,9 +1,8 @@
 import {
   Container,
   Wrapper,
-  SearchButton,
+  SearchInput,
   SearchIcon,
-  SearchText,
   FilterButton,
   FilterIcon,
 } from '@components/shared/searchBox/styles';
@@ -11,10 +10,8 @@ import {
 const SearchBox = () => (
   <Container>
     <Wrapper>
-      <SearchButton>
-        <SearchIcon src="/image/searchBox/searchIcon.svg" />
-        <SearchText>Search</SearchText>
-      </SearchButton>
+      <SearchIcon src="/image/searchBox/searchIcon.svg" />
+      <SearchInput type="text" placeholder="Search" />
       <FilterButton>
         <FilterIcon src="/image/searchBox/filterIcon.svg" />
       </FilterButton>

@@ -15,24 +15,31 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px;
+  padding: 7px 24px;
 `;
 
-export const SearchButton = styled.button`
+export const SearchIcon = styled.img`
+  margin-right: 5px;
+`;
+
+export const SearchInput = styled.input`
   cursor: grab;
   display: flex;
   flex-direction: row;
-  width: 42vw;
-`;
-
-export const SearchText = styled.p`
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  max-width: 400px;
   font-family: 'NotoSansKRRegular';
   font-size: 1.4rem;
-  color: #ccc;
-  margin-left: 6px;
+  line-height: 2.6rem;
+  ::placeholder {
+    font-family: 'NotoSansKRRegular';
+    font-size: 1.4rem;
+    color: #ccc;
+    margin-left: 6px;
+  }
 `;
-
-export const SearchIcon = styled.img``;
 
 export const FilterButton = styled.button`
   cursor: grab;

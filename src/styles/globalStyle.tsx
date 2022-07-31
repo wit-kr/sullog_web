@@ -1,14 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   html {
     font-size: 62.5%;
     @supports (-webkit-touch-callout: none) {
       height: -webkit-fill-available;
     }
   }
+
   body {
-    overflow: hidden;
+    //overflow: hidden;
     background-color: #f1f1f1;
     margin: 0;
     padding: 0;
@@ -17,18 +20,27 @@ const GlobalStyle = createGlobalStyle`
       min-height: -webkit-fill-available;
     }
     box-sizing: border-box;
-    font-family: 'NotoSansKR', -apple-system, BlinkMacSystemFont, system-ui, Roboto;
+    font-family: 'NotoSansKRRegular', 'MapoFlowerIsland', -apple-system, BlinkMacSystemFont, system-ui, Roboto;
   }
+
   button {
     all: unset;
   }
+
   input {
     all: unset;
   }
-  .button {
-    font-family: 'NotoSansKR';
+
+  @font-face {
+    font-family: "MapoFlowerIsland";
+    src: url("/fonts/MapoFlowerIsland.otf") format("truetype");
   }
-  
+
+  @font-face {
+    font-family: "NotoSansKRRegular";
+    src: url("/fonts/NotoSansKR-Regular.otf") format("truetype");
+  }
+
   .mapboxgl-control-container {
     display: none;
   }

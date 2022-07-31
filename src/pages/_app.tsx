@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import type { AppProps } from 'next/app';
-import GlobalStyle from 'styles/GlobalStyle';
+import GlobalStyle from 'styles/globalStyle';
 import '@public/fonts/style.css';
 import Head from 'next/head';
 import { NextPage } from 'next';

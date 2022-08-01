@@ -6,7 +6,7 @@ import {
   Hamburger,
   Title,
 } from '@components/layout/header/headerWithBack/styles';
-import SearchBox from '@components/shared/searchBox';
+import SearchInputBox from '@components/shared/searchInputBox';
 
 type modalProps = {
   isModalShow: boolean;
@@ -26,7 +26,7 @@ const HeaderWithBack = ({ isModalShow, setIsModalShow }: modalProps) => {
       <HamburgerButton>
         <Hamburger src="/image/icon/hamburger.svg" />
       </HamburgerButton>
-      <SearchBox />
+      <SearchInputBox />
     </Container>
   );
 };

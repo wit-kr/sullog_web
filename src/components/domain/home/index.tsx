@@ -4,14 +4,10 @@ import Map from './Map';
 const Container = styled.div`
   margin: 0px auto;
   background-color: rgb(255, 255, 255);
-  width: min(480px, 100%);
+  width: min(500px, 100%);
   min-height: 100vh;
 `;
 
-const Home = () => (
-  <Container>
-    <Map />
-  </Container>
-);
+const Home = () => <div>{/* <Map /> */}</div>;
 
 export default Home;

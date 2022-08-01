@@ -15,31 +15,21 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 24px;
+  padding: 10px 24px;
 `;
 
-export const SearchButton = styled.button`
-  cursor: grab;
+export const SearchInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 70vw;
   max-width: 400px;
-`;
-
-export const SearchIcon = styled.img`
-  margin-right: 5px;
-`;
-
-export const SearchButtonTitle = styled.p`
   font-family: 'NotoSansKRRegular';
   font-size: 1.4rem;
-  line-height: 2.6rem;
-  color: #ccc;
 `;
 
-export const FilterButton = styled.button`
+export const CancelButton = styled.button`
   cursor: grab;
 `;
 
-export const FilterIcon = styled.img``;
+export const CancelIcon = styled.img``;

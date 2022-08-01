@@ -11,6 +11,14 @@ export const Container = styled.div`
   padding-top: 16px;
 `;
 
+export const BackButton = styled.button`
+  cursor: grab;
+  position: absolute;
+  left: 28px;
+`;
+
+export const BackButtonIcon = styled.img``;
+
 export const Title = styled.img`
   width: 27vw;
   max-width: 120px;

@@ -11,7 +11,7 @@ import { useState } from 'react';
 import SearchModal from '@components/domain/search/modal';
 
 const SearchBox = () => {
-  const [isModalShow, setIsModalShow] = useState(false);
+  const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
   const showModal = () => {
     setIsModalShow(!isModalShow);
@@ -30,7 +30,12 @@ const SearchBox = () => {
           </FilterButton>
         </Wrapper>
       </Container>
-      {isModalShow && <SearchModal />}
+      {isModalShow && (
+        <SearchModal
+          isModalShow={isModalShow}
+          setIsModalShow={setIsModalShow}
+        />
+      )}
     </>
   );
 };

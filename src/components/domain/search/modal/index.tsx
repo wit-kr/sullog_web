@@ -1,9 +1,14 @@
 import { Container } from '@components/domain/search/modal/styles';
 import HeaderWithBack from '@components/layout/header/headerWithBack';
 
-const SearchModal = () => (
+type modalProps = {
+  isModalShow: boolean;
+  setIsModalShow: (isModalShow: boolean) => void;
+};
+
+const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => (
   <Container>
-    <HeaderWithBack />
+    <HeaderWithBack isModalShow={isModalShow} setIsModalShow={setIsModalShow} />
   </Container>
 );
 

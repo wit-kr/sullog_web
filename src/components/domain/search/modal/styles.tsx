@@ -16,6 +16,7 @@ export const Container = styled.div`
 export const RecentContentsWrapper = styled.div`
   margin-top: 110px;
   width: 87vw;
+  max-width: 450px;
 `;
 
 export const RecentContentsTitleBox = styled.div`

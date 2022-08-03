@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 500px;
   height: 13.6vh;
   max-height: 90px;
   border-radius: 30px 30px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #fff;
 `;
 
 export const ButtonContainer = styled.div`

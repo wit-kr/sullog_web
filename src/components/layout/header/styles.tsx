@@ -9,6 +9,7 @@ export const Container = styled.div`
   max-width: 500px;
   height: 12.8vh;
   padding-top: 16px;
+  z-index: 9999;
 `;
 
 export const Title = styled.img`

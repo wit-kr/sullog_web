@@ -6,18 +6,15 @@ import {
   CancelIcon,
 } from '@components/shared/searchInputBox/styles';
 
-const SearchInputBox = () => {
-  console.log('hi');
-  return (
-    <Container>
-      <Wrapper>
-        <SearchInput />
-        <CancelButton onClick={() => console.log('cancel')}>
-          <CancelIcon src="/image/icon/cancel.svg" />
-        </CancelButton>
-      </Wrapper>
-    </Container>
-  );
-};
+const SearchInputBox = () => (
+  <Container>
+    <Wrapper>
+      <SearchInput autoFocus />
+      <CancelButton>
+        <CancelIcon src="/image/icon/cancel.svg" />
+      </CancelButton>
+    </Wrapper>
+  </Container>
+);
 
 export default SearchInputBox;

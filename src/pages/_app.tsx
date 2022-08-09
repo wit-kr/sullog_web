@@ -4,6 +4,7 @@ import GlobalStyle from 'styles/globalStyle';
 import '@public/fonts/style.css';
 import Head from 'next/head';
 import { NextPage } from 'next';
+import { RecoilRoot } from 'recoil';
 import { ReactElement, ReactNode } from 'react';
 
 export type NextPageWithLayout = NextPage & {
@@ -33,7 +34,9 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
         <title>sullog</title>
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 };

@@ -1,13 +1,28 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import tokenState from 'shared/atoms/token';
 import styled from 'styled-components';
 import Map from './Map';
 
-const Container = styled.div`
-  margin: 0px auto;
-  background-color: rgb(255, 255, 255);
-  width: min(500px, 100%);
-  min-height: 100vh;
-`;
+const Home = () => {
+  const router = useRouter();
+  const token = router.query?.access_token;
 
-const Home = () => <div>{/* <Map /> */}</div>;
+  const [savedToken, setSavedToken] = useRecoilState(tokenState);
+
+  useEffect(() => {
+    if (token === undefined && savedToken === '') {
+      router.push('/login');
+    } else if (token && savedToken === '') {
+      setSavedToken(Array.isArray(token) ? token.join() : token);
+    }
+  }, [token]);
+
+  console.log(token);
+
+  return <div>{/* <Map /> */}</div>;
+};
 
 export default Home;

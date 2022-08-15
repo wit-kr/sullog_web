@@ -31,11 +31,11 @@ export const Description = styled.p`
   line-height: 1.6rem;
   white-space: pre-line;
   button {
-    font-family: 'NotoSansKR';
-    font-size: 1.1rem;
-    font-weight: bold;
-    line-height: 1.6rem;
     color: #bbbbbb;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'NotoSansKR';
+    line-height: 1.6rem;
   }
 `;
 
@@ -55,8 +55,27 @@ export const Slogan = styled.img`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  > button:first-of-type {
-    margin-bottom: 8px;
-  }
+  gap: 8px;
   margin-bottom: 16px;
+`;
+
+export const Button = styled.a<{ backgroundColor: string; color: string }>`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 91.6vw;
+  max-width: 500px;
+  height: 48px;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  border-radius: 6px;
+  font-size: 16px;
+  color: ${({ color }) => color};
+  text-decoration: none;
+`;
+
+export const Icon = styled.img`
+  position: absolute;
+  left: 20px;
 `;

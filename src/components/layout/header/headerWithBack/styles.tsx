@@ -24,15 +24,3 @@ export const Title = styled.img`
   max-width: 120px;
   height: auto;
 `;
-
-export const HamburgerButton = styled.button`
-  cursor: grab;
-  position: absolute;
-  right: 28px;
-`;
-
-export const Hamburger = styled.img`
-  width: 5.5vw;
-  max-width: 25px;
-  height: auto;
-`;

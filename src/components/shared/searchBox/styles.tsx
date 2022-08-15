@@ -42,4 +42,7 @@ export const FilterButton = styled.button`
   cursor: grab;
 `;
 
-export const FilterIcon = styled.img``;
+export const FilterIcon = styled.img<{ isFilterShow: boolean }>`
+  filter: ${(props) =>
+    props.isFilterShow ? null : 'grayscale(1) opacity(0.5)'};
+`;

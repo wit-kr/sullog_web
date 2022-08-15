@@ -18,12 +18,12 @@ const Home = () => {
   const router = useRouter();
   const { access_token, type } = router.query;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const savedToken = getStorage(KEY.TOKEN);
     const savedType = getStorage(KEY.TYPE);
 
     if (!savedToken || !savedType) {
-      // router.push('/login');
+      router.push('/login');
     } else {
       const headers = [
         { key: 'token', value: savedToken as string },

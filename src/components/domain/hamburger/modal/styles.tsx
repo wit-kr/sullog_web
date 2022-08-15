@@ -70,6 +70,23 @@ export const TitleImage = styled.img`
   height: auto;
 `;
 
+export const ChartBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 200px;
+  height: auto;
+`;
+
+export const Description = styled.p`
+  font-family: 'NotoSansKRRegular';
+  line-height: 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 350;
+  color: #999;
+`;
+
 export const ButtonBox = styled.div`
   display: flex;
   flex-direction: column;

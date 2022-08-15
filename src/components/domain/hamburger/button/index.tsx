@@ -1,5 +1,9 @@
 import { Wrapper } from '@components/domain/hamburger/button/styles';
 
-const Button = () => <Wrapper>앱 정보</Wrapper>;
+type buttonProps = {
+  title: string;
+};
+
+const Button = ({ title }: buttonProps) => <Wrapper>{title}</Wrapper>;
 
 export default Button;

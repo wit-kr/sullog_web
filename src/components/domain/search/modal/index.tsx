@@ -15,12 +15,12 @@ type modalProps = {
 const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => (
   <Container>
     <HeaderWithBack isModalShow={isModalShow} setIsModalShow={setIsModalShow} />
-    <RecentContentsWrapper>
-      <RecentContentsTitleBox>
-        <RecentContentsTitle>최근 검색어</RecentContentsTitle>
-        <DeleteAllButton>모두 지우기</DeleteAllButton>
-      </RecentContentsTitleBox>
-    </RecentContentsWrapper>
+    {/* <RecentContentsWrapper> */}
+    {/*   <RecentContentsTitleBox> */}
+    {/*     <RecentContentsTitle>최근 검색어</RecentContentsTitle> */}
+    {/*     <DeleteAllButton>모두 지우기</DeleteAllButton> */}
+    {/*   </RecentContentsTitleBox> */}
+    {/* </RecentContentsWrapper> */}
   </Container>
 );
 

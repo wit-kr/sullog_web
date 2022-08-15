@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { instance } from 'pages/_app';
 import { useEffect, useLayoutEffect } from 'react';
 import { getStorage, KEY, setStorage } from 'shared/storage';
+import Map from './Map';
 
 const setAxiosHeader = (headers: { key: string; value: string }[]) => {
   instance.interceptors.request.use((config) => {
@@ -44,7 +45,11 @@ const Home = () => {
     }
   }, [access_token, type]);
 
-  return <div>{/* <Map /> */}</div>;
+  return (
+    <div>
+      <Map />
+    </div>
+  );
 };
 
 export default Home;

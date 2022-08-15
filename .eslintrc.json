@@ -45,6 +45,7 @@
     "no-unused-vars": "off",
     "@next/next/no-img-element": "off",
     "implicit-arrow-linebreak": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "import/prefer-default-export": "off"
   }
 }

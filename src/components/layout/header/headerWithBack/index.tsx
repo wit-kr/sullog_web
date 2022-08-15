@@ -23,9 +23,6 @@ const HeaderWithBack = ({ isModalShow, setIsModalShow }: modalProps) => {
         <BackButtonIcon src="/image/icon/back.svg" />
       </BackButton>
       <Title src="/image/title.svg" />
-      <HamburgerButton>
-        <Hamburger src="/image/icon/hamburger.svg" />
-      </HamburgerButton>
       <SearchInputBox />
     </Container>
   );

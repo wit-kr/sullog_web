@@ -2,8 +2,6 @@ import {
   Container,
   BackButton,
   BackButtonIcon,
-  HamburgerButton,
-  Hamburger,
   Title,
 } from '@components/layout/header/headerWithBack/styles';
 import SearchInputBox from '@components/shared/searchInputBox';

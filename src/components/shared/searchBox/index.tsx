@@ -9,12 +9,18 @@ import {
 } from '@components/shared/searchBox/styles';
 import { useState } from 'react';
 import SearchModal from '@components/domain/search/modal';
+import FilterModal from '@components/domain/search/filter';
 
 const SearchBox = () => {
   const [isModalShow, setIsModalShow] = useState<boolean>(false);
+  const [isFilterShow, setIsFilterShow] = useState<boolean>(false);
 
   const showModal = () => {
     setIsModalShow(!isModalShow);
+  };
+
+  const showFilter = () => {
+    setIsFilterShow(!isFilterShow);
   };
 
   return (
@@ -25,8 +31,11 @@ const SearchBox = () => {
             <SearchIcon src="/image/searchBox/searchIcon.svg" />
             <SearchButtonTitle>Search</SearchButtonTitle>
           </SearchButton>
-          <FilterButton>
-            <FilterIcon src="/image/searchBox/filterIcon.svg" />
+          <FilterButton onClick={showFilter}>
+            <FilterIcon
+              isFilterShow={isFilterShow}
+              src="/image/searchBox/filterIcon.svg"
+            />
           </FilterButton>
         </Wrapper>
       </Container>
@@ -36,6 +45,7 @@ const SearchBox = () => {
           setIsModalShow={setIsModalShow}
         />
       )}
+      {isFilterShow && <FilterModal />}
     </>
   );
 };

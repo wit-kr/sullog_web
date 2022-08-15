@@ -1,7 +1,19 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const WrapperFadeIn = keyframes`
+  0% {
+    transform: translateX(100%);
+    z-index: 999;
+  }
+  100% {
+    transform: translateX(0%);
+    z-index: 999;
+  }
+`;
 
 export const Wrapper = styled.div`
   position: absolute;
+  z-index: 99;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
@@ -17,6 +29,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  animation: ${WrapperFadeIn} 0.5s;
 `;
 
 export const CloseButton = styled.button`

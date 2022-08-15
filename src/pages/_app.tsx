@@ -4,7 +4,9 @@ import GlobalStyle from 'styles/globalStyle';
 import '@public/fonts/style.css';
 import Head from 'next/head';
 import { NextPage } from 'next';
+import { RecoilRoot } from 'recoil';
 import { ReactElement, ReactNode } from 'react';
+import axios from 'axios';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -13,6 +15,10 @@ export type NextPageWithLayout = NextPage & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+export const instance = axios.create({
+  baseURL: 'http://52.78.33.186:8080/sullog/',
+});
 
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);
@@ -33,7 +39,9 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
         <title>sullog</title>
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 };

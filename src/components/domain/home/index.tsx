@@ -1,44 +1,48 @@
 /* eslint-disable camelcase */
-import axios from 'axios';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { instance } from 'pages/_app';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import tokenState from 'shared/atoms/token';
-import styled from 'styled-components';
-import Map from './Map';
+import { useEffect, useLayoutEffect } from 'react';
+import { getStorage, KEY, setStorage } from 'shared/storage';
+
+const setAxiosHeader = (headers: { key: string; value: string }[]) => {
+  instance.interceptors.request.use((config) => {
+    headers.forEach((header) => {
+      config.headers![header.key] = header.value;
+    });
+    return config;
+  });
+};
 
 const Home = () => {
   const router = useRouter();
   const { access_token, type } = router.query;
 
-  const isLoggedIn = access_token; // useIsLoggedIn()
+  useLayoutEffect(() => {
+    const savedToken = getStorage(KEY.TOKEN);
+    const savedType = getStorage(KEY.TYPE);
+
+    if (!savedToken || !savedType) {
+      router.push('/login');
+    } else {
+      const headers = [
+        { key: 'token', value: savedToken as string },
+        { key: 'type', value: savedType as string },
+      ];
+      setAxiosHeader(headers);
+    }
+  }, []);
 
   useEffect(() => {
     if (access_token && type) {
-      // save access_token & type
-      instance.interceptors.request.use((config) => {
-        config.headers!.token = Array.isArray(access_token)
-          ? access_token.join()
-          : access_token;
-        config.headers!.type = Array.isArray(type) ? type.join() : type;
-        return config;
-      });
+      const headers = [
+        { key: 'token', value: access_token as string },
+        { key: 'type', value: type as string },
+      ];
+      setAxiosHeader(headers);
+      setStorage(KEY.TOKEN, access_token);
+      setStorage(KEY.TYPE, type);
     }
   }, [access_token, type]);
-
-  // useEffect(() => {
-  //   if (!isLoggedIn.data) {
-  //     router.push('/login');
-  //   }
-  // }, [isLoggedIn]);
-
-  // if (isLoggedIn.isLoadding || isLoggedIn.isIdle) {
-  // }
-
-  // if (isLoggedIn.isError) {
-  // }
 
   return <div>{/* <Map /> */}</div>;
 };

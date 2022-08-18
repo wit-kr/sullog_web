@@ -1,19 +1,7 @@
-import styled, { keyframes } from 'styled-components';
-
-const WrapperFadeIn = keyframes`
-  0% {
-    transform: translateX(100%);
-    z-index: 999;
-  }
-  100% {
-    transform: translateX(0%);
-    z-index: 999;
-  }
-`;
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: absolute;
-  z-index: 99;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
@@ -29,14 +17,13 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  animation: ${WrapperFadeIn} 0.5s;
 `;
 
 export const CloseButton = styled.button`
   position: absolute;
   right: 0;
   cursor: grab;
-  margin-top: 36px;
+  margin-top: 70px;
   margin-right: 30px;
   display: flex;
   flex-direction: row;
@@ -56,8 +43,8 @@ export const ContentsBox = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding-top: 110px;
+  padding-bottom: 80px;
 `;
 
 export const TextBox = styled.div``;
@@ -77,6 +64,15 @@ export const Welcome = styled.span`
   line-height: 2.2rem;
 `;
 
+export const MiddleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+`;
+
 export const TitleImage = styled.img`
   width: 25vw;
   max-width: 100px;
@@ -87,8 +83,8 @@ export const ChartBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
-  max-width: 200px;
+  width: 70%;
+  max-width: 230px;
   height: auto;
 `;
 

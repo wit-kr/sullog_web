@@ -39,33 +39,6 @@ const Login = () => {
     }
   }, [router, initializing, user]);
 
-  // useEffect(() => {
-  //   const savedToken = getStorage(STORAGE_KEY.TOKEN);
-  //   const savedType = getStorage(STORAGE_KEY.TYPE);
-
-  //   if (!savedToken || !savedType) {
-  //     router.push('/');
-  //   } else {
-  //     const headers = [
-  //       { key: 'token', value: savedToken as string },
-  //       { key: 'type', value: savedType as string },
-  //     ];
-  //     setAxiosHeader(headers);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (access_token && type) {
-  //     const headers = [
-  //       { key: 'token', value: access_token as string },
-  //       { key: 'type', value: type as string },
-  //     ];
-  //     setAxiosHeader(headers);
-  //     setStorage(KEY.TOKEN, access_token);
-  //     setStorage(KEY.TYPE, type);
-  //   }
-  // }, [access_token, type]);
-
   return (
     <Wrapper>
       <div>

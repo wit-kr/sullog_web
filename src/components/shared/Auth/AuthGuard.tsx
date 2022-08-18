@@ -7,11 +7,12 @@ export function AuthGuard({ children }: { children: JSX.Element }) {
   const router = useRouter();
 
   useEffect(() => {
+    console.log(initializing, router, user);
     if (!initializing) {
       //auth is initialized and there is no user
       if (!user) {
         // remember the page that user tried to access
-        router.push('/login');
+        router.push(`/login${router.asPath}`);
       }
     }
   }, [initializing, router, user]);

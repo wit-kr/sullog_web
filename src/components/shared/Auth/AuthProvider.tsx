@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { getStorage, STORAGE_KEY } from '../../../shared/storage';
+import { getStorage, setStorage, STORAGE_KEY } from '../../../shared/storage';
 
 export interface User {
   token: string;
@@ -29,6 +29,18 @@ export class Auth {
     }
 
     return this.user;
+  }
+
+  signIn({ token, email, type }: User) {
+    // initialize
+    this.user = {
+      token,
+      email,
+      type,
+    };
+
+    // save user to localStorage
+    setStorage(STORAGE_KEY.USER, { token, email, type });
   }
 }
 
@@ -65,6 +77,7 @@ export function AuthProvider({ children }: { children: JSX.Element }) {
     } else {
       setUser(null);
     }
+
     setInitializing(false);
   }, []);
 

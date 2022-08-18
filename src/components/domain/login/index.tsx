@@ -1,3 +1,4 @@
+import { useAuth } from '@components/shared/Auth/AuthProvider';
 import { useRouter } from 'next/router';
 import { instance } from 'pages/_app';
 import { useEffect, useState } from 'react';
@@ -17,7 +18,26 @@ const setAxiosHeader = (headers: { key: string; value: string }[]) => {
 
 const Login = () => {
   const router = useRouter();
-  const { access_token, type } = router.query;
+  const { auth, initializing, user } = useAuth();
+
+  const { accesss_token, type, email } = router.query;
+
+  useEffect(() => {
+    if (
+      typeof accesss_token === 'string' &&
+      (type === 'naver' || type === 'kakao') &&
+      typeof email === 'string'
+    ) {
+      const token = accesss_token;
+      auth.signIn({ token, type, email });
+    }
+
+    if (!initializing) {
+      if (user) {
+        router.push('/'); // go to default protected page
+      }
+    }
+  }, [router, initializing, user]);
 
   // useEffect(() => {
   //   const savedToken = getStorage(STORAGE_KEY.TOKEN);

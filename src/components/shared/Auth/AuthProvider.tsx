@@ -1,3 +1,4 @@
+import { instance } from 'pages/_app';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { getStorage, setStorage, STORAGE_KEY } from '../../../shared/storage';
 
@@ -13,6 +14,14 @@ export class Auth {
   constructor() {
     this.user = null;
   }
+  setAxiosHeader = (headers: { key: string; value: string }[]) => {
+    instance.interceptors.request.use((config) => {
+      headers.forEach((header) => {
+        config.headers![header.key] = header.value;
+      });
+      return config;
+    });
+  };
 
   resolveUser() {
     if (window) {
@@ -23,6 +32,11 @@ export class Auth {
           email: savedUser.email,
           type: savedUser.type,
         };
+        this.setAxiosHeader([
+          { key: 'token', value: this.user.token as string },
+          { key: 'type', value: this.user.type as string },
+          { key: 'email', value: this.user.email as string },
+        ]);
       }
     } else {
       this.user = null;
@@ -41,6 +55,12 @@ export class Auth {
 
     // save user to localStorage
     setStorage(STORAGE_KEY.USER, { token, email, type });
+
+    this.setAxiosHeader([
+      { key: 'token', value: token as string },
+      { key: 'type', value: type as string },
+      { key: 'email', value: email as string },
+    ]);
   }
 }
 

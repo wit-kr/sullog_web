@@ -23,7 +23,7 @@ export const CloseButton = styled.button`
   position: absolute;
   right: 0;
   cursor: grab;
-  margin-top: 36px;
+  margin-top: 70px;
   margin-right: 30px;
   display: flex;
   flex-direction: row;
@@ -43,8 +43,8 @@ export const ContentsBox = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding-top: 110px;
+  padding-bottom: 80px;
 `;
 
 export const TextBox = styled.div``;
@@ -64,6 +64,15 @@ export const Welcome = styled.span`
   line-height: 2.2rem;
 `;
 
+export const MiddleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+`;
+
 export const TitleImage = styled.img`
   width: 25vw;
   max-width: 100px;
@@ -74,8 +83,8 @@ export const ChartBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
-  max-width: 200px;
+  width: 70%;
+  max-width: 230px;
   height: auto;
 `;
 

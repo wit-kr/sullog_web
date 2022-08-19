@@ -1,6 +1,5 @@
-export const KEY = {
-  TOKEN: 'token',
-  TYPE: 'type',
+export const STORAGE_KEY = {
+  USER: 'user',
 };
 
 export const setStorage = (key: string, data: any) => {

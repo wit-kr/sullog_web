@@ -1,6 +1,8 @@
 import Explore from '@components/domain/explore';
-import type { NextPage } from 'next';
+import { NextPageWithLayout } from './_app';
 
-const ExplorePage: NextPage = () => <Explore />;
+const ExplorePage: NextPageWithLayout = () => <Explore />;
+
+ExplorePage.requireAuth = true;
 
 export default ExplorePage;

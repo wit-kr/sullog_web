@@ -1,20 +1,9 @@
 import { useAuth } from '@components/shared/Auth/AuthProvider';
 import { useRouter } from 'next/router';
-import { instance } from 'pages/_app';
-import { useEffect, useState } from 'react';
-import { getStorage, STORAGE_KEY, setStorage } from 'shared/storage';
+import { useEffect } from 'react';
 import KakaoButton from './button/kakao';
 import NaverButton from './button/naver';
 import { ButtonContainer, Description, Logo, Slogan, Wrapper } from './styles';
-
-const setAxiosHeader = (headers: { key: string; value: string }[]) => {
-  instance.interceptors.request.use((config) => {
-    headers.forEach((header) => {
-      config.headers![header.key] = header.value;
-    });
-    return config;
-  });
-};
 
 const Login = () => {
   const router = useRouter();

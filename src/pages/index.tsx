@@ -9,4 +9,6 @@ HomePage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
+HomePage.requireAuth = true;
+
 export default HomePage;

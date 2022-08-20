@@ -21,7 +21,7 @@ const Footer = () => {
           <span>추천</span>
         </RecommendButton>
       </ButtonContainer>
-      <WriteButton onClick={() => router.push('/write/album')}>
+      <WriteButton onClick={() => router.push('/create/search')}>
         <img src="/image/icon/pencil.svg" alt="write" />
         <span>글쓰기</span>
       </WriteButton>

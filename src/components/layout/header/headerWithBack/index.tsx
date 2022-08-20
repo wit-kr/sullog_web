@@ -21,7 +21,12 @@ const HeaderWithBack = ({ isModalShow, setIsModalShow }: modalProps) => {
         <BackButtonIcon src="/image/icon/back.svg" />
       </BackButton>
       <Title src="/image/title.svg" />
-      <SearchInputBox />
+      <SearchInputBox
+        onSubmit={(text: string): void => {
+          throw new Error('Function not implemented.');
+        }}
+        placeholder=""
+      />
     </Container>
   );
 };

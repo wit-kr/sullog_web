@@ -5,9 +5,14 @@ import {
   CancelButton,
   CancelIcon,
 } from '@components/shared/searchInputBox/styles';
-import React, { useCallback, useState } from 'react';
+import React, { KeyboardEvent, useCallback, useState } from 'react';
 
-const SearchInputBox = () => {
+interface SearchInputBoxProps {
+  onSubmit: (text: string) => void;
+  placeholder: string;
+}
+
+const SearchInputBox = ({ onSubmit, placeholder }: SearchInputBoxProps) => {
   const [searchInput, setSearchInput] = useState('');
 
   const onChangeSearchInput = useCallback(
@@ -21,13 +26,21 @@ const SearchInputBox = () => {
     setSearchInput('');
   };
 
+  const handleOnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'enter') {
+      onSubmit(searchInput);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
         <SearchInput
           autoFocus
+          placeholder={placeholder}
           type="text"
           value={searchInput}
+          onKeyPress={handleOnKeyPress}
           onChange={onChangeSearchInput}
         />
         <CancelButton onClick={deleteSearchInput}>

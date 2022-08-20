@@ -8,7 +8,7 @@ export const Container = styled.div`
   width: 100%;
   max-width: 500px;
   height: 12.8vh;
-  padding-top: 16px;
+  padding-top: 50px;
 `;
 
 export const BackButton = styled.button`
@@ -22,17 +22,5 @@ export const BackButtonIcon = styled.img``;
 export const Title = styled.img`
   width: 27vw;
   max-width: 120px;
-  height: auto;
-`;
-
-export const HamburgerButton = styled.button`
-  cursor: grab;
-  position: absolute;
-  right: 28px;
-`;
-
-export const Hamburger = styled.img`
-  width: 5.5vw;
-  max-width: 25px;
   height: auto;
 `;

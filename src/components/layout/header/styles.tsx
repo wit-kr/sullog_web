@@ -8,8 +8,8 @@ export const Container = styled.div`
   width: 100%;
   max-width: 500px;
   height: 12.8vh;
-  padding-top: 16px;
-  z-index: 9999;
+  padding-top: 50px;
+  z-index: 99;
 `;
 
 export const Title = styled.img`

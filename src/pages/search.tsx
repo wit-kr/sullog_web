@@ -1,6 +1,8 @@
 import Search from '@components/domain/search';
-import type { NextPage } from 'next';
+import { NextPageWithLayout } from './_app';
 
-const SearchPage: NextPage = () => <Search />;
+const SearchPage: NextPageWithLayout = () => <Search />;
+
+SearchPage.requireAuth = true;
 
 export default SearchPage;

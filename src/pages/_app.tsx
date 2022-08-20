@@ -7,9 +7,12 @@ import { NextPage } from 'next';
 import { RecoilRoot } from 'recoil';
 import { ReactElement, ReactNode } from 'react';
 import axios from 'axios';
+import { AuthProvider } from '@components/shared/Auth/AuthProvider';
+import { AuthGuard } from '@components/shared/Auth/AuthGuard';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
+  requireAuth?: boolean;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -40,7 +43,15 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
       </Head>
       <GlobalStyle />
       <RecoilRoot>
-        <Component {...pageProps} />
+        <AuthProvider>
+          {Component.requireAuth ? (
+            <AuthGuard>
+              <Component {...pageProps} />
+            </AuthGuard>
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </AuthProvider>
       </RecoilRoot>
     </>
   );

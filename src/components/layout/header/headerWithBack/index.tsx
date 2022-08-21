@@ -33,10 +33,6 @@ const HeaderWithBack = ({
       </BackButton>
       <Title src="/image/title.svg" />
       <SearchInputBox
-        onSubmit={(text: string): void => {
-          throw new Error('Function not implemented.');
-        }}
-        placeholder=""
         isSubmit={isSubmit}
         setIsSubmit={setIsSubmit}
         isFocus={isFocus}

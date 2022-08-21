@@ -1,10 +1,10 @@
 /* eslint-disable no-use-before-define */
 import NavigationHeader from '@components/layout/header/navigationHeader';
-import SearchInputBox from '@components/shared/searchInputBox';
 import { useSearchAlcohols } from 'hooks/useSearchAlcohols';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import SearchInputBox from './SearchBar';
 
 const Search = () => {
   const router = useRouter();

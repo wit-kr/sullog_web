@@ -6,9 +6,10 @@ import Head from 'next/head';
 import { NextPage } from 'next';
 import { RecoilRoot } from 'recoil';
 import { ReactElement, ReactNode } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 import { AuthProvider } from '@components/shared/Auth/AuthProvider';
 import { AuthGuard } from '@components/shared/Auth/AuthGuard';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -19,12 +20,14 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export const instance = axios.create({
-  baseURL: 'http://52.78.33.186:8080/sullog/',
+export const axios = Axios.create({
+  // baseURL: 'http://52.78.33.186:8080/sullog/',
 });
 
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);
+
+  const queryClient = new QueryClient();
 
   return getLayout(
     <>
@@ -42,17 +45,19 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
         <title>sullog</title>
       </Head>
       <GlobalStyle />
-      <RecoilRoot>
-        <AuthProvider>
-          {Component.requireAuth ? (
-            <AuthGuard>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
+          <AuthProvider>
+            {Component.requireAuth ? (
+              <AuthGuard>
+                <Component {...pageProps} />
+              </AuthGuard>
+            ) : (
               <Component {...pageProps} />
-            </AuthGuard>
-          ) : (
-            <Component {...pageProps} />
-          )}
-        </AuthProvider>
-      </RecoilRoot>
+            )}
+          </AuthProvider>
+        </RecoilRoot>
+      </QueryClientProvider>
     </>
   );
 };

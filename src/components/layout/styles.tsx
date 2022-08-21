@@ -14,6 +14,7 @@ const Container = styled.div`
   @supports (-webkit-touch-callout: none) {
     height: -webkit-fill-available;
   }
+  background-color: #ffffff;
 `;
 
 export default Container;

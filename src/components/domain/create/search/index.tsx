@@ -3,14 +3,28 @@ import NavigationHeader from '@components/layout/header/navigationHeader';
 import SearchInputBox from '@components/shared/searchInputBox';
 import { useSearchAlcohols } from 'hooks/useSearchAlcohols';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Search = () => {
   const router = useRouter();
 
-  const searchAlcohols = useSearchAlcohols();
+  const [searchKeyword, setSearchKeyword] = useState('');
 
-  console.log(searchAlcohols);
+  const searchAlcohols = useSearchAlcohols({
+    pageNum: 1,
+    pageSize: 10,
+    keyword: searchKeyword,
+    options: { enabled: false },
+  });
+
+  useEffect(() => {
+    if (searchKeyword) searchAlcohols.refetch();
+  }, [searchKeyword]);
+
+  const onSubmit = (text: string) => {
+    setSearchKeyword(text);
+  };
 
   return (
     <SearchContainer>
@@ -23,7 +37,7 @@ const Search = () => {
         }}
       />
       <SearchInputBox
-        onSubmit={(text: string) => {}}
+        onSubmit={onSubmit}
         placeholder="마신 술 이름을 입력해주세요."
       />
     </SearchContainer>

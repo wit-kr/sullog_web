@@ -27,7 +27,7 @@ const SearchInputBox = ({ onSubmit, placeholder }: SearchInputBoxProps) => {
   };
 
   const handleOnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'enter') {
+    if (e.key === 'Enter') {
       onSubmit(searchInput);
     }
   };

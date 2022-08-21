@@ -7,9 +7,13 @@ export const setStorage = (key: string, data: any) => {
 };
 
 export const getStorage = (key: string) => {
-  const item = window.localStorage.getItem(key);
-  if (item) {
-    return JSON.parse(item);
+  try {
+    const item = window.localStorage.getItem(key);
+    if (item) {
+      return JSON.parse(item);
+    }
+    return undefined;
+  } catch (e) {
+    return false;
   }
-  return undefined;
 };

@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { instance } from 'pages/_app';
+import { axios } from 'pages/_app';
 import {
   createContext,
   ReactNode,
@@ -25,7 +25,7 @@ export class Auth {
   }
 
   setAxiosHeader = (headers: { key: string; value: string }[]) => {
-    instance.interceptors.request.use((config) => {
+    axios.interceptors.request.use((config) => {
       headers.forEach((header) => {
         config.headers![header.key] = header.value;
       });

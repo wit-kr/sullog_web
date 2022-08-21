@@ -21,7 +21,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export const axios = Axios.create({
-  baseURL: 'http://52.78.33.186:8080/sullog/',
+  // baseURL: 'http://52.78.33.186:8080/sullog/',
 });
 
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {

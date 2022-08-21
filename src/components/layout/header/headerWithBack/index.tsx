@@ -9,9 +9,20 @@ import SearchInputBox from '@components/shared/searchInputBox';
 type modalProps = {
   isModalShow: boolean;
   setIsModalShow: (isModalShow: boolean) => void;
+  isSubmit: boolean;
+  setIsSubmit: (isSubmit: boolean) => void;
+  isFocus: boolean;
+  setIsFocus: (isFocus: boolean) => void;
 };
 
-const HeaderWithBack = ({ isModalShow, setIsModalShow }: modalProps) => {
+const HeaderWithBack = ({
+  isModalShow,
+  setIsModalShow,
+  isSubmit,
+  setIsSubmit,
+  isFocus,
+  setIsFocus,
+}: modalProps) => {
   const closeSearchModal = () => {
     setIsModalShow(!isModalShow);
   };
@@ -21,7 +32,12 @@ const HeaderWithBack = ({ isModalShow, setIsModalShow }: modalProps) => {
         <BackButtonIcon src="/image/icon/back.svg" />
       </BackButton>
       <Title src="/image/title.svg" />
-      <SearchInputBox />
+      <SearchInputBox
+        isSubmit={isSubmit}
+        setIsSubmit={setIsSubmit}
+        isFocus={isFocus}
+        setIsFocus={setIsFocus}
+      />
     </Container>
   );
 };

@@ -1,5 +1,14 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-shadow */
+/* eslint-disable react/jsx-no-constructed-context-values */
 import { instance } from 'pages/_app';
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { getStorage, setStorage, STORAGE_KEY } from '../../../shared/storage';
 
 export interface User {
@@ -14,6 +23,7 @@ export class Auth {
   constructor() {
     this.user = null;
   }
+
   setAxiosHeader = (headers: { key: string; value: string }[]) => {
     instance.interceptors.request.use((config) => {
       headers.forEach((header) => {
@@ -85,7 +95,7 @@ export function useAuth() {
 
 const auth = new Auth();
 
-export function AuthProvider({ children }: { children: JSX.Element }) {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [initializing, setInitializing] = useState(true);
 
@@ -108,4 +118,4 @@ export function AuthProvider({ children }: { children: JSX.Element }) {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};

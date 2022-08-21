@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useAuth } from '@components/shared/Auth/AuthProvider';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';

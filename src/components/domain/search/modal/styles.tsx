@@ -13,31 +13,17 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const RecentContentsWrapper = styled.div`
-  margin-top: 110px;
-  width: 87vw;
-  max-width: 450px;
-`;
-
-export const RecentContentsTitleBox = styled.div`
+export const ContentsWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 144px;
+  width: 87%;
+`;
+
+export const NoResultWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
-`;
-
-export const RecentContentsTitle = styled.p`
-  font-family: 'NotoSansKRRegular';
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2.6rem;
-  color: #3e14b4;
-`;
-
-export const DeleteAllButton = styled.button`
-  cursor: grab;
-  font-family: 'NotoSansKRRegular';
-  font-size: 1rem;
-  line-height: 2.6rem;
-  color: #b5b5b5;
+  justify-content: center;
+  height: 100%;
 `;

@@ -16,6 +16,8 @@ export const Wrapper = styled.div`
   padding: 10px 24px;
 `;
 
+export const SearchForm = styled.form``;
+
 export const SearchInput = styled.input`
   display: flex;
   flex-direction: row;

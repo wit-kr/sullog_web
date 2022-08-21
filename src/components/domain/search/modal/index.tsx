@@ -1,14 +1,15 @@
 import {
   Container,
-  ContentsWrapper,
-  NoResultWrapper,
+  RecentContentsWrapper,
+  ResultContentsWrapper,
 } from '@components/domain/search/modal/styles';
 import HeaderWithBack from '@components/layout/header/headerWithBack';
 import NoResult from '@components/domain/search/noResult';
-import Item from '@components/domain/search/item';
+import Item from '@components/domain/experience/item';
 import { useEffect, useState } from 'react';
 import RecentContents from '@components/domain/search/recentContents';
 import { is } from '@babel/types/lib/index-legacy';
+import Result from '@components/domain/search/result';
 
 type modalProps = {
   isModalShow: boolean;
@@ -34,15 +35,15 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
         isFocus={isFocus}
         setIsFocus={setIsFocus}
       />
-      <ContentsWrapper>
-        {!isSubmit ? (
+      {!isSubmit ? (
+        <RecentContentsWrapper>
           <RecentContents searchArr={searchArr} setSearchArr={setSearchArr} />
-        ) : (
-          <NoResultWrapper>
-            <NoResult />
-          </NoResultWrapper>
-        )}
-      </ContentsWrapper>
+        </RecentContentsWrapper>
+      ) : (
+        <ResultContentsWrapper>
+          <Result />
+        </ResultContentsWrapper>
+      )}
     </Container>
   );
 };

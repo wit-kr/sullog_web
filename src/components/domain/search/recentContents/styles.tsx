@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const RecentContentsWrapper = styled.div`
-  width: 87vw;
-  max-width: 450px;
+  width: 100%;
 `;
 
 export const RecentContentsTitleBox = styled.div`

@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <Container>
       <ButtonContainer>
-        <SettingButton>
+        <SettingButton onClick={() => router.push('/experience')}>
           <img src="/image/icon/setting.svg" alt="setting" />
           <span>설정</span>
         </SettingButton>

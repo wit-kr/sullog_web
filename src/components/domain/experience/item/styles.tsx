@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `;
 
 export const LeftBox = styled.div`
-  width: 50vw;
+  width: 43vw;
 `;
 
 export const RightBox = styled.div`

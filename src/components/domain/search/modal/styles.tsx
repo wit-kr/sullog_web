@@ -13,11 +13,20 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const ContentsWrapper = styled.div`
+export const RecentContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 144px;
-  width: 87%;
+  width: 83vw;
+  max-width: 430px;
+`;
+
+export const ResultContentsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 144px;
+  width: 78vw;
+  max-width: 430px;
 `;
 
 export const NoResultWrapper = styled.div`

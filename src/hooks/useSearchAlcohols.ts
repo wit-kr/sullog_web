@@ -28,7 +28,8 @@ export const fetchSearchAlcohols = async ({
   keyword: string;
 }): Promise<SullogResponse<AlcoholInterface>> => {
   const res = await axios.get(
-    `/alchol/searchAlchols?pageNum=${pageNum}&pageSize=${pageSize}&keyword=${keyword}`
+    `/alchol/searchAlchols?pageNum=${pageNum}&pageSize=${pageSize}&keyword=${keyword}`,
+    { withCredentials: true }
   );
   return res.data;
 };

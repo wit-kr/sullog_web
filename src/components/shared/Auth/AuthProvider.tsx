@@ -15,6 +15,19 @@ export interface User {
   token: string;
   email: string;
   type: 'naver' | 'kakao';
+  seq: number;
+}
+
+export interface UserInfoData {
+  seq: number;
+  type: 'kakao' | 'naver';
+  email: string;
+}
+
+export interface UserInfo {
+  code: number;
+  message: string;
+  data: UserInfoData;
 }
 
 export class Auth {
@@ -41,6 +54,7 @@ export class Auth {
           token: savedUser.token,
           email: savedUser.email,
           type: savedUser.type,
+          seq: savedUser.seq,
         };
         this.setAxiosHeader([
           { key: 'token', value: this.user.token as string },
@@ -55,22 +69,44 @@ export class Auth {
     return this.user;
   }
 
-  signIn({ token, email, type }: User) {
-    // initialize
-    this.user = {
-      token,
-      email,
-      type,
-    };
-
-    // save user to localStorage
-    setStorage(STORAGE_KEY.USER, { token, email, type });
-
+  async signIn({
+    token,
+    email,
+    type,
+  }: {
+    token: string;
+    email: string;
+    type: 'naver' | 'kakao';
+  }) {
     this.setAxiosHeader([
       { key: 'token', value: token as string },
       { key: 'type', value: type as string },
       { key: 'email', value: email as string },
     ]);
+
+    const userInfo: UserInfo = await (
+      await axios.get(
+        `/_login/getUserInfo?email=${email}&token=${token}&type=${type}`,
+        { withCredentials: true }
+      )
+    ).data;
+    const { seq } = userInfo.data;
+
+    // initialize
+    this.user = {
+      token,
+      email,
+      type,
+      seq,
+    };
+
+    // save user to localStorage
+    setStorage(STORAGE_KEY.USER, {
+      token,
+      email,
+      type,
+      seq,
+    });
   }
 }
 

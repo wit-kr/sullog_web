@@ -12,13 +12,13 @@ const Footer = () => {
   return (
     <Container>
       <ButtonContainer>
-        <SettingButton>
-          <img src="/image/icon/setting.svg" alt="setting" />
-          <span>설정</span>
+        <SettingButton onClick={() => router.push('/experience')}>
+          <img src="/image/icon/recommend.svg" alt="setting" />
+          <span>추천</span>
         </SettingButton>
         <RecommendButton>
-          <img src="/image/icon/recommend.svg" alt="recommend" />
-          <span>추천</span>
+          <img src="/image/icon/menu.svg" alt="recommend" />
+          <span>메뉴</span>
         </RecommendButton>
       </ButtonContainer>
       <WriteButton onClick={() => router.push('/create/search')}>

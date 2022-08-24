@@ -12,7 +12,12 @@ type recentItemProps = {
 
 const RecentItem = ({ item, id, removeItem }: recentItemProps) => (
   <RecentItems>
-    {item}
+    <button
+      type="button"
+      onClick={() => console.log('이거 누르면 검색요청되게 하면 됨')}
+    >
+      {item}
+    </button>
     <DeleteButton onClick={() => removeItem(item)}>
       <DeleteButtonIcon src="/image/icon/delete.svg" />
     </DeleteButton>

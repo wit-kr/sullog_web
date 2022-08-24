@@ -7,7 +7,7 @@ import {
   Brand,
   Description,
   DrinkImage,
-} from '@components/domain/search/item/styles';
+} from '@components/domain/experience/item/styles';
 
 const Item = () => (
   <Wrapper>

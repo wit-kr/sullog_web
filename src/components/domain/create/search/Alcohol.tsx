@@ -13,6 +13,7 @@ const AlcoholContainer = styled.div`
   background: #f9f9f9;
   border-radius: 15px;
   padding: 1.6rem 2rem 2.5rem 2rem;
+  cursor: pointer;
 `;
 
 const AlcoholInfoHeader = styled.span`
@@ -38,16 +39,16 @@ const Alcohol = ({ alchol }: AlcoholProps) => {
   const router = useRouter();
 
   const handleOnClickAlcohol = () => {
-    router.push('/create/write');
+    router.push(`/create/write/${alchol.seq}`);
   };
 
   return (
     <AlcoholContainer onClick={handleOnClickAlcohol}>
       <AlcoholInfoHeader>
-        <AlcoholInfoText>기타</AlcoholInfoText>
-        <AlcoholInfoText>신평양조장</AlcoholInfoText>
+        <AlcoholInfoText>{alchol.type}</AlcoholInfoText>
+        <AlcoholInfoText>{alchol.manufacturer}</AlcoholInfoText>
       </AlcoholInfoHeader>
-      <AlcoholNameText>백련 맑은 술</AlcoholNameText>
+      <AlcoholNameText>{alchol.name}</AlcoholNameText>
     </AlcoholContainer>
   );
 };

@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import RecentContents from '@components/domain/search/recentContents';
 import { is } from '@babel/types/lib/index-legacy';
 import Result from '@components/domain/search/result';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { expState } from '../../../../atom/atoms';
 
 type modalProps = {
   isModalShow: boolean;
@@ -22,6 +24,8 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
   );
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [isData, setIsData] = useState<boolean>(true);
+  const test = useRecoilValue(expState);
   useEffect(() => {
     setSearchArr(JSON.parse(localStorage.getItem('search')!));
   }, [isSubmit]);
@@ -41,7 +45,7 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
         </RecentContentsWrapper>
       ) : (
         <ResultContentsWrapper>
-          <Result />
+          <Result test={test} />
         </ResultContentsWrapper>
       )}
     </Container>

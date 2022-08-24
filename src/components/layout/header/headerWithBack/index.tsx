@@ -5,6 +5,7 @@ import {
   Title,
 } from '@components/layout/header/headerWithBack/styles';
 import SearchInputBox from '@components/shared/searchInputBox';
+import { useSearchAllExp } from '../../../../hooks/useSearchAllExp';
 
 type modalProps = {
   isModalShow: boolean;

@@ -41,3 +41,5 @@ export interface Alchol {
   city: string;
   phone: string;
 }
+
+export interface Experience {}

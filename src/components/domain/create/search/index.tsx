@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SearchInputBox from './SearchBar';
+import { useSearchAllExp } from '../../../../hooks/useSearchAllExp';
 
 const Search = () => {
   const router = useRouter();

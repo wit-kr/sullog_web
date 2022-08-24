@@ -5,9 +5,9 @@ import { NextPageWithLayout } from './_app';
 
 const HomePage: NextPageWithLayout = () => <Home />;
 
-HomePage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
+// HomePage.getLayout = function getLayout(page: ReactElement) {
+//   return <Layout>{page}</Layout>;
+// };
 
 HomePage.requireAuth = true;
 

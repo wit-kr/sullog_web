@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import { AlcoholInterface } from '../../../../types/sullog.interface';
+import { AlcoholType } from '../../../../types/sullog.interface';
 
 interface AlcoholProps {
-  alchol: AlcoholInterface;
+  alchol: AlcoholType;
 }
 
 const AlcoholContainer = styled.div`

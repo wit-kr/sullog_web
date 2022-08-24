@@ -25,7 +25,7 @@ export interface SullogResponse<T> {
   data: SullogData<T>;
 }
 
-export interface AlcoholInterface {
+export interface AlcoholType {
   seq: number;
   name: string;
   type: string;

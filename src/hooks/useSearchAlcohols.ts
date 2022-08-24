@@ -1,7 +1,7 @@
 /* eslint-disable function-paren-newline */
 import { axios } from 'pages/_app';
 import { useQuery, UseQueryOptions } from 'react-query';
-import { AlcoholInterface, SullogResponse } from 'types/sullog.interface';
+import { AlcoholType, SullogResponse } from 'types/sullog.interface';
 
 interface SearchAlcholsParams {
   pageNum: number;
@@ -9,9 +9,9 @@ interface SearchAlcholsParams {
   keyword: string;
   options: Omit<
     UseQueryOptions<
-      SullogResponse<AlcoholInterface>,
+      SullogResponse<AlcoholType>,
       unknown,
-      SullogResponse<AlcoholInterface>,
+      SullogResponse<AlcoholType>,
       (string | number)[]
     >,
     'queryKey' | 'queryFn'
@@ -26,7 +26,7 @@ export const fetchSearchAlcohols = async ({
   pageNum: number;
   pageSize: number;
   keyword: string;
-}): Promise<SullogResponse<AlcoholInterface>> => {
+}): Promise<SullogResponse<AlcoholType>> => {
   const res = await axios.get(
     `/alchol/searchAlchols?pageNum=${pageNum}&pageSize=${pageSize}&keyword=${keyword}`,
     { withCredentials: true }

@@ -18,6 +18,7 @@ import { useEffect, useRef } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { setStorage, STORAGE_KEY } from 'shared/storage';
 
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
@@ -101,8 +102,13 @@ const HamburgerModal = ({ isModalShow, setIsModalShow }: modalProps) => {
             </Description>
           </MiddleBox>
           <ButtonBox>
-            <Button title="문의하기" />
-            <Button title="로그아웃" />
+            <Button title="문의하기" onClick={() => {}} />
+            <Button
+              title="로그아웃"
+              onClick={() => {
+                setStorage(STORAGE_KEY.USER, undefined);
+              }}
+            />
           </ButtonBox>
         </ContentsBox>
       </Container>

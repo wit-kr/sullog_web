@@ -1,7 +1,7 @@
 /* eslint-disable function-paren-newline */
 import { axios } from 'pages/_app';
 import { useQuery } from 'react-query';
-import { Alchol, SullogResponse } from 'types/sullog.interface';
+import { AlcoholType, SullogResponse } from 'types/sullog.interface';
 
 interface GetAlcholsParams {
   pageNum: number;
@@ -11,7 +11,7 @@ interface GetAlcholsParams {
 export const fetchGetAlcohols = async ({
   pageNum,
   pageSize,
-}: GetAlcholsParams): Promise<SullogResponse<Alchol>> => {
+}: GetAlcholsParams): Promise<SullogResponse<AlcoholType>> => {
   const res = await axios.get(
     `/alchol/getAlchols?pageNum=${pageNum}&pageSize=${pageSize}`
   );

@@ -3,7 +3,11 @@ import NavigationHeader from '@components/layout/header/navigationHeader';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-const Write = () => {
+interface WriteProps {
+  id: number;
+}
+
+const Write = ({ id }: WriteProps) => {
   const router = useRouter();
 
   return (

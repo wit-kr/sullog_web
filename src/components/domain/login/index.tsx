@@ -9,23 +9,18 @@ import { ButtonContainer, Description, Logo, Slogan, Wrapper } from './styles';
 const Login = () => {
   const router = useRouter();
   const { auth, initializing, user } = useAuth();
-
-  const { accesss_token, type, email } = router.query;
+  const { access_token, type, email } = router.query;
 
   useEffect(() => {
     if (
-      typeof accesss_token === 'string' &&
+      typeof access_token === 'string' &&
       (type === 'naver' || type === 'kakao') &&
       typeof email === 'string'
     ) {
-      const token = accesss_token;
+      const token = access_token;
       auth.signIn({ token, type, email });
-    }
 
-    if (!initializing) {
-      if (user) {
-        router.push('/'); // go to default protected page
-      }
+      router.push('/'); // go to default protected page
     }
   }, [router, initializing, user]);
 

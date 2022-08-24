@@ -2,8 +2,11 @@ import { Wrapper } from '@components/domain/hamburger/button/styles';
 
 type buttonProps = {
   title: string;
+  onClick: () => void;
 };
 
-const Button = ({ title }: buttonProps) => <Wrapper>{title}</Wrapper>;
+const Button = ({ title, onClick }: buttonProps) => (
+  <Wrapper onClick={onClick}>{title}</Wrapper>
+);
 
 export default Button;

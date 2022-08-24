@@ -9,7 +9,7 @@ const WritePage: NextPageWithLayout = () => {
 
   return (
     <Container>
-      <Write />
+      <Write id={id} />
     </Container>
   );
 };

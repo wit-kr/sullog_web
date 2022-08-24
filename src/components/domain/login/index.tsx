@@ -9,7 +9,6 @@ import { ButtonContainer, Description, Logo, Slogan, Wrapper } from './styles';
 const Login = () => {
   const router = useRouter();
   const { auth, initializing, user } = useAuth();
-
   const { access_token, type, email } = router.query;
 
   useEffect(() => {
@@ -20,12 +19,8 @@ const Login = () => {
     ) {
       const token = access_token;
       auth.signIn({ token, type, email });
-    }
 
-    if (!initializing) {
-      if (user) {
-        router.push('/'); // go to default protected page
-      }
+      router.push('/'); // go to default protected page
     }
   }, [router, initializing, user]);
 

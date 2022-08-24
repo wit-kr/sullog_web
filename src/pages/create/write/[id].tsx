@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import Write from '@components/domain/create/wrtie';
 import Container from '@components/layout/styles';
 import { useRouter } from 'next/router';
@@ -9,7 +10,7 @@ const WritePage: NextPageWithLayout = () => {
 
   return (
     <Container>
-      <Write id={id} />
+      <Write id={parseInt(id as string)} />
     </Container>
   );
 };

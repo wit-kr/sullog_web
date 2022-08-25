@@ -8,7 +8,9 @@ import {
 } from '@components/shared/searchInputBox/styles';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useAuth } from '@components/shared/Auth/AuthProvider';
+import { useRecoilState } from 'recoil';
 import { useSearchExpWithKeyword } from '../../../hooks/useSearchExpWithKeyword';
+import { expSearchData, expState } from '../../../atom/atoms';
 
 type inputBoxProps = {
   isSubmit: boolean;
@@ -30,30 +32,27 @@ const SearchInputBox = ({
   // 검색 인풋 관리
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchInput, setSearchInput] = useState<string>('');
+  const [test, setTest] = useState('');
 
   const { data, refetch } = useSearchExpWithKeyword({
     userSeq: seq!,
-    keyword: searchInput,
-    options: {},
+    keyword: test,
+    options: {
+      retry: false,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      enabled: false,
+    },
   });
 
   // 로컬스토리지에서 최근 검색어 가져오기
   const searchArr = JSON.parse(localStorage.getItem('search')!);
-
-  const searchExp = useSearchExpWithKeyword({
-    userSeq: seq!,
-    keyword: searchInput,
-    options: { enabled: false },
-  });
 
   // 마운트시 실행
   useEffect(() => {
     // 로컬스토리지에 search key 가 없다면 만들어주기
     if (localStorage.search === undefined) {
       localStorage.setItem('search', JSON.stringify([]));
-    }
-    if (isSubmit) {
-      refetch();
     }
   }, []);
 
@@ -79,7 +78,9 @@ const SearchInputBox = ({
       searchArr.unshift(searchInput); // 맨 앞으로 요소 추가
       const cleanArr = [...new Set(searchArr)]; // 중복 삭제
       localStorage.setItem('search', JSON.stringify(cleanArr)); // 로컬스토리지 저장
-      setIsSubmit(true);
+      setIsSubmit(true); // 제출 상태 변경
+      setTest(searchInput);
+      refetch();
     }
   };
 

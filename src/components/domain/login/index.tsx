@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable camelcase */
 import { useAuth } from '@components/shared/Auth/AuthProvider';
 import { useRouter } from 'next/router';
@@ -12,14 +13,22 @@ const Login = () => {
   const { access_token, type, email } = router.query;
 
   useEffect(() => {
+    const signInUser = async (
+      token: string,
+      type: 'naver' | 'kakao',
+      email: string
+    ) => {
+      auth.signIn({ token, type, email });
+      router.push('/'); // go to default protected page
+    };
     if (
       typeof access_token === 'string' &&
       (type === 'naver' || type === 'kakao') &&
       typeof email === 'string'
     ) {
+      signInUser(access_token, type, email);
       const token = access_token;
       auth.signIn({ token, type, email });
-
       router.push('/'); // go to default protected page
     }
   }, [router, initializing, user]);

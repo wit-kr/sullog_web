@@ -21,6 +21,7 @@
     "react-dom": "18.1.0",
     "react-map-gl": "^7.0.16",
     "react-query": "^3.39.1",
+    "react-simple-star-rating": "^4.0.5",
     "recoil": "^0.7.4",
     "styled-components": "^5.3.5",
     "styled-reset": "^4.4.2",

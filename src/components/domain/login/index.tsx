@@ -27,6 +27,9 @@ const Login = () => {
       typeof email === 'string'
     ) {
       signInUser(access_token, type, email);
+      const token = access_token;
+      auth.signIn({ token, type, email });
+      router.push('/'); // go to default protected page
     }
   }, [router, initializing, user]);
 

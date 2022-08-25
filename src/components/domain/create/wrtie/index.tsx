@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { ChangeEventHandler, FormEvent, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
-
 import 'swiper/css';
 
 interface WriteProps {

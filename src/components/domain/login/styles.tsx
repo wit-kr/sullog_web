@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  overflow: hidden;
   background-color: #3e14b4;
   display: flex;
   flex-direction: column;

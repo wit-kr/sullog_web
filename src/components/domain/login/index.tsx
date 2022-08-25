@@ -1,8 +1,12 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable global-require */
 /* eslint-disable no-shadow */
 /* eslint-disable camelcase */
 import { useAuth } from '@components/shared/Auth/AuthProvider';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import lottie from 'lottie-web';
+import styled from 'styled-components';
 import KakaoButton from './button/kakao';
 import NaverButton from './button/naver';
 import { ButtonContainer, Description, Logo, Slogan, Wrapper } from './styles';
@@ -11,6 +15,19 @@ const Login = () => {
   const router = useRouter();
   const { auth, initializing, user } = useAuth();
   const { access_token, type, email } = router.query;
+  const lottieRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (lottieRef.current) {
+      lottie.loadAnimation({
+        container: lottieRef.current,
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        animationData: require('./sullog.json'),
+      });
+    }
+  }, [lottieRef]);
 
   useEffect(() => {
     const signInUser = async (
@@ -37,6 +54,7 @@ const Login = () => {
     <Wrapper>
       <div>
         <Logo src="/logo.svg" alt="logo" />
+        <SullogAnimation ref={lottieRef} />
         <Slogan src="/slogan.svg" alt="slogan" />
       </div>
       <div>
@@ -57,3 +75,12 @@ const Login = () => {
 };
 
 export default Login;
+
+const SullogAnimation = styled.div`
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  margin: 0 auto;
+  z-index: 1000;
+`;

@@ -6,6 +6,7 @@ import {
   WriteButton,
 } from '@components/layout/footer/styles';
 import { useRouter } from 'next/router';
+import { useSearchExpWithKeyword } from '../../../hooks/useSearchExpWithKeyword';
 
 const Footer = () => {
   const router = useRouter();
@@ -13,8 +14,8 @@ const Footer = () => {
     <Container>
       <ButtonContainer>
         <SettingButton onClick={() => router.push('/experience')}>
-          <img src="/image/icon/recommend.svg" alt="setting" />
-          <span>추천</span>
+          <img src="/image/icon/people.svg" alt="other people" />
+          <span>더보기</span>
         </SettingButton>
         <RecommendButton>
           <img src="/image/icon/menu.svg" alt="recommend" />

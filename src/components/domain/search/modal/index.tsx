@@ -24,8 +24,6 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
   );
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
-  const [isData, setIsData] = useState<boolean>(true);
-  const test = useRecoilValue(expState);
   useEffect(() => {
     setSearchArr(JSON.parse(localStorage.getItem('search')!));
   }, [isSubmit]);
@@ -45,7 +43,7 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
         </RecentContentsWrapper>
       ) : (
         <ResultContentsWrapper>
-          <Result test={test} />
+          <Result />
         </ResultContentsWrapper>
       )}
     </Container>

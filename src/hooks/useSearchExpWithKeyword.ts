@@ -24,18 +24,18 @@ export const fetchExperiences = async ({
   keyword: string;
 }): Promise<SullogResponse<Experience>> => {
   const { data } = await axios(
-    encodeURI(`/record/searchRecord?user_seq=${userSeq}&keyword=${keyword}`)
+    `/record/searchRecord?user_seq=${userSeq}&keyword=${keyword}`
   );
   return data;
 };
 
-export const useSearchAllExp = ({
+export const useSearchExpWithKeyword = ({
   userSeq,
   keyword,
   options,
 }: SearchExperiencesProps) =>
   useQuery(
-    ['searchAllExp', userSeq, keyword],
+    ['searchAllExp'],
     () => fetchExperiences({ userSeq, keyword }),
     options
   );

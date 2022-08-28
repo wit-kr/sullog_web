@@ -1,20 +1,21 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable radix */
-import Write from '@components/domain/create/wrtie';
+import Write, { WriteProps } from '@components/domain/create/wrtie';
 import Container from '@components/layout/styles';
 import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 
 const WritePage: NextPageWithLayout = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const params = router.query;
 
-  if (!id) {
+  if (Object.keys(params).length === 0) {
     return <div />;
   }
 
   return (
     <Container>
-      <Write id={parseInt(id as string)} />
+      <Write {...(params as unknown as WriteProps)} />
     </Container>
   );
 };

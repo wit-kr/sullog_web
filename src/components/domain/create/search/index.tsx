@@ -31,14 +31,7 @@ const Search = () => {
 
   return (
     <SearchContainer>
-      <NavigationHeader
-        canGoBack
-        title="검색"
-        headerRight={{
-          label: '다음',
-          onClick: () => router.push('/create/write'),
-        }}
-      />
+      <NavigationHeader canGoBack title="검색" />
       <SearchInputBox
         onSubmit={onSubmit}
         placeholder="마신 술 이름을 입력해주세요."

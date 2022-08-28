@@ -39,7 +39,17 @@ const Alcohol = ({ alchol }: AlcoholProps) => {
   const router = useRouter();
 
   const handleOnClickAlcohol = () => {
-    router.push(`/create/write/${alchol.seq}`);
+    router.push({
+      pathname: '/create/write',
+      query: {
+        id: alchol.seq,
+        name: alchol.name,
+        type: alchol.type,
+        manufacturer: alchol.manufacturer,
+        abv: alchol.abv,
+        location: `${alchol.province} ${alchol.city}`,
+      },
+    });
   };
 
   return (

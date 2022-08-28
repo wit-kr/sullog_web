@@ -11,6 +11,7 @@ export const Container = styled.div`
   height: 13.6vh;
   max-height: 90px;
   border-radius: 30px 30px 0 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   background-color: #fff;
 `;
 

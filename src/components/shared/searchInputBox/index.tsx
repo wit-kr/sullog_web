@@ -74,7 +74,6 @@ const SearchInputBox = ({ setIsSubmit, setData }: inputBoxProps) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (searchInput.trim().length !== 0) {
-      // setData(undefined);
       inputRef.current!.blur(); // 제출 후 focus 해제
       searchArr.unshift(searchInput); // 맨 앞으로 요소 추가
       const cleanArr = [...new Set(searchArr)]; // 중복 삭제

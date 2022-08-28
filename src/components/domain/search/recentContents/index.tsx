@@ -11,9 +11,18 @@ import { useEffect } from 'react';
 type recentContentsProps = {
   searchArr: string[];
   setSearchArr: (searchArr: string[]) => void;
+  setData: (data: any) => void;
+  isSubmit: boolean;
+  setIsSubmit: (isSubmit: boolean) => void;
 };
 
-const RecentContents = ({ searchArr, setSearchArr }: recentContentsProps) => {
+const RecentContents = ({
+  searchArr,
+  setSearchArr,
+  setData,
+  isSubmit,
+  setIsSubmit,
+}: recentContentsProps) => {
   const removeItem = (item: any) => {
     const newArr = searchArr.filter((search) => search !== item);
     setSearchArr(newArr);
@@ -39,8 +48,10 @@ const RecentContents = ({ searchArr, setSearchArr }: recentContentsProps) => {
           <RecentItem
             key={i.toString() + item}
             item={item}
-            id={i.toString() + item}
             removeItem={removeItem}
+            setData={setData}
+            isSubmit={isSubmit}
+            setIsSubmit={setIsSubmit}
           />
         ))}
       </RecentItemsBox>

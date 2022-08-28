@@ -2,10 +2,15 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  max-width: 500px;
+  overflow: scroll;
+  background-color: white;
 `;
 
 export const PhotoWrapper = styled.div`
@@ -19,6 +24,7 @@ export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 83vw;
+  max-width: 450px;
   padding-top: 20px;
 `;
 
@@ -84,10 +90,9 @@ export const Rate = styled.span`
 
 export const DetailBox = styled.div`
   background-color: #f9f9f9;
-  width: 83vw;
-  height: 140px;
-  border-radius: 1rem;
+  border-radius: 10px;
   margin-top: 18px;
+  padding: 10px 27px;
 `;
 
 export const Description = styled.p`

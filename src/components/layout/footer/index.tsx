@@ -2,16 +2,19 @@ import {
   ButtonContainer,
   Container,
   RecommendButton,
-  SettingButton,
+  FeedButton,
   WriteButton,
 } from '@components/layout/footer/styles';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HamburgerModal from '@components/domain/hamburger/modal';
 
 const Footer = () => {
   const router = useRouter();
   const [isModalShow, setIsModalShow] = useState<boolean>(false);
+  const buttonClicked = () => {
+    router.push('/explore');
+  };
 
   const showModal = () => {
     setIsModalShow(!isModalShow);
@@ -21,10 +24,14 @@ const Footer = () => {
     <>
       <Container>
         <ButtonContainer>
-          <SettingButton onClick={() => router.push('/explore')}>
-            <img src="/image/icon/people.svg" alt="other people" />
+          <FeedButton onClick={buttonClicked}>
+            {router?.pathname === '/explore' ? (
+              <img src="/image/icon/purplepeople.svg" alt="feed" />
+            ) : (
+              <img src="/image/icon/people.svg" alt="other people" />
+            )}
             <span>둘러보기</span>
-          </SettingButton>
+          </FeedButton>
           <RecommendButton onClick={showModal}>
             <img src="/image/icon/menu.svg" alt="recommend" />
             <span>메뉴</span>

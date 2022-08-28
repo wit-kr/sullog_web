@@ -20,7 +20,6 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
     JSON.parse(localStorage.getItem('search')!)
   );
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
-  const [isFocus, setIsFocus] = useState<boolean>(false);
   const [data, setData] = useState<Experience[] | undefined>(undefined);
 
   useEffect(() => {
@@ -32,15 +31,18 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
       <HeaderWithBack
         isModalShow={isModalShow}
         setIsModalShow={setIsModalShow}
-        isSubmit={isSubmit}
         setIsSubmit={setIsSubmit}
-        isFocus={isFocus}
-        setIsFocus={setIsFocus}
         setData={setData}
       />
       {!isSubmit ? (
         <RecentContentsWrapper>
-          <RecentContents searchArr={searchArr} setSearchArr={setSearchArr} />
+          <RecentContents
+            searchArr={searchArr}
+            setSearchArr={setSearchArr}
+            setData={setData}
+            isSubmit={isSubmit}
+            setIsSubmit={setIsSubmit}
+          />
         </RecentContentsWrapper>
       ) : (
         <ResultContentsWrapper>

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable radix */
-import { LngLatBoundsLike } from 'mapbox-gl';
+import { GeoJSONSource, LngLatBoundsLike, MapLayerMouseEvent } from 'mapbox-gl';
 import ReactMapGL, { Layer, Marker, Source, useMap } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { createRef, useEffect, useRef, useState } from 'react';
@@ -386,7 +386,38 @@ const Map = () => {
     })),
   });
 
-  useEffect(() => {}, [mapRef]);
+  const onClick = (event: any) => {
+    if (mapRef.current) {
+      if (event.features && event.features.length > 0) {
+        const feature = event.features[0];
+        if (feature.layer.id === 'clusters' && feature.properties) {
+          const clusterId = feature.properties.cluster_id;
+
+          const mapboxSource = mapRef.current.getSource(
+            'records'
+          ) as GeoJSONSource;
+
+          mapboxSource.getClusterExpansionZoom(clusterId, (err, zoom) => {
+            if (err) {
+              return;
+            }
+
+            if (mapRef.current) {
+              mapRef.current.easeTo({
+                center: feature.geometry.coordinates,
+                zoom,
+                duration: 500,
+              });
+            }
+          });
+        }
+
+        if (feature.layer.id === 'unclustered-point') {
+          console.log(feature.properties);
+        }
+      }
+    }
+  };
 
   return (
     <ReactMapGL
@@ -399,6 +430,8 @@ const Map = () => {
       mapStyle="mapbox://styles/jinho1011/cl5faqrml00dv15qvknh8tres"
       mapboxAccessToken={mapboxAccessToken}
       // maxBounds={maxBounds as LngLatBoundsLike}
+      interactiveLayerIds={[clusterLayer.id, unclusteredPointLayer.id]}
+      onClick={onClick}
       ref={mapRef}
     >
       <MapImage id="pin" src="/image/icon/pin.png" />

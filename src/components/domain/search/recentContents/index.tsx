@@ -48,7 +48,6 @@ const RecentContents = ({
           <RecentItem
             key={i.toString() + item}
             item={item}
-            id={i.toString() + item}
             removeItem={removeItem}
             setData={setData}
             isSubmit={isSubmit}

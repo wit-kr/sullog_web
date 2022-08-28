@@ -9,7 +9,6 @@ import { useSearchExpWithKeyword } from '../../../../../hooks/useSearchExpWithKe
 
 type recentItemProps = {
   item: string;
-  id: string;
   removeItem: (id: any) => void;
   setData: (data: any) => void;
   isSubmit: boolean;

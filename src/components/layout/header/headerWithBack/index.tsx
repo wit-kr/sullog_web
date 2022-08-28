@@ -10,20 +10,14 @@ import { Experience } from '../../../../types/sullog.interface';
 type modalProps = {
   isModalShow: boolean;
   setIsModalShow: (isModalShow: boolean) => void;
-  isSubmit: boolean;
   setIsSubmit: (isSubmit: boolean) => void;
-  isFocus: boolean;
-  setIsFocus: (isFocus: boolean) => void;
   setData: (data: Experience[] | undefined) => void;
 };
 
 const HeaderWithBack = ({
   isModalShow,
   setIsModalShow,
-  isSubmit,
   setIsSubmit,
-  isFocus,
-  setIsFocus,
   setData,
 }: modalProps) => {
   const closeSearchModal = () => {

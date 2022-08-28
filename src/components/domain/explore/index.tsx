@@ -1,15 +1,24 @@
 import {
   DataWrapper,
   ExperienceBox,
+  ExperienceImg,
   NoDataTitle,
   NoDataWrapper,
 } from '@components/domain/explore/styles';
 import Footer from '@components/layout/footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '@components/layout';
+import { useGetAllExp } from '../../../hooks/useGetAllExp';
 
 const Explore = () => {
-  const [isData, setIsData] = useState(true);
+  const { data, isLoading, isError } = useGetAllExp();
+  const experiences = data?.data;
+  const [isData, setIsData] = useState(false);
+  useEffect(() => {
+    if (experiences !== undefined) {
+      setIsData(true);
+    }
+  }, [isLoading]);
 
   return (
     <Layout>
@@ -19,14 +28,11 @@ const Explore = () => {
         </NoDataWrapper>
       ) : (
         <DataWrapper>
-          <ExperienceBox />
-          <ExperienceBox />
-          <ExperienceBox />
-          <ExperienceBox />
-          <ExperienceBox />
-          <ExperienceBox />
-          <ExperienceBox />
-          <ExperienceBox />
+          {experiences?.map((exp) => (
+            <ExperienceBox key={exp?.seq}>
+              <ExperienceImg src={`data:image/png;base64,${exp.image_byte}`} />
+            </ExperienceBox>
+          ))}
         </DataWrapper>
       )}
       <Footer />

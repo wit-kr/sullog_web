@@ -63,6 +63,7 @@ export interface Experience {
   dairy: string;
   etc: string;
   name: string;
+  image_byte: string[];
 }
 
 export interface SullogExpResponse {

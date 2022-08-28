@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import RecentContents from '@components/domain/search/recentContents';
 import { is } from '@babel/types/lib/index-legacy';
 import Result from '@components/domain/search/result';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { expState } from '../../../../atom/atoms';
 
 type modalProps = {
   isModalShow: boolean;
@@ -40,9 +42,7 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
           <RecentContents searchArr={searchArr} setSearchArr={setSearchArr} />
         </RecentContentsWrapper>
       ) : (
-        <ResultContentsWrapper>
-          <Result />
-        </ResultContentsWrapper>
+        <ResultContentsWrapper>{/* <Result /> */}</ResultContentsWrapper>
       )}
     </Container>
   );

@@ -41,3 +41,23 @@ export interface AlcoholType {
   city: string;
   phone: string;
 }
+
+export interface Experience {
+  seq: number;
+  user_seq: number;
+  alchol_seq: number;
+  star: string;
+  abv: string;
+  incense: string;
+  taste: string;
+  img_seq: string;
+  time: string;
+  flower: string;
+  fruit: string;
+  grain: string;
+  nut: string;
+  sweetness: string;
+  dairy: string;
+  etc: string;
+  name: string;
+}

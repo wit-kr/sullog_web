@@ -24,7 +24,7 @@ export const ButtonContainer = styled.div`
   max-width: 330px;
 `;
 
-export const SettingButton = styled.button`
+export const FeedButton = styled.button`
   cursor: grab;
   display: flex;
   flex-direction: column;

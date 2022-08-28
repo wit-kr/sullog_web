@@ -1,4 +1,4 @@
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow,react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import { Dispatch, SetStateAction } from 'react';
 import ReactSlider from 'react-slider';
@@ -75,17 +75,27 @@ interface FlavorProps {
   minLabel: string;
   maxLabel: string;
   data: number;
-  setData: Dispatch<SetStateAction<number>>;
+  setData?: Dispatch<SetStateAction<number>>;
+  disabled?: boolean;
 }
 
-const Flavor = ({ label, minLabel, maxLabel, data, setData }: FlavorProps) => (
+const Flavor = ({
+  label,
+  minLabel,
+  maxLabel,
+  data,
+  setData,
+  disabled,
+}: FlavorProps) => (
   <AlcoholFlavorInputContainer>
     <AlcoholFlavorLabel>{label}</AlcoholFlavorLabel>
     <AlcoholFlavorSliderContainer>
       <StyledSlider
+        disabled={!!disabled}
         value={data}
         onChange={(value: number | readonly number[]) => {
-          setData(value as number);
+          // eslint-disable-next-line no-unused-expressions
+          setData ? setData(value as number) : null;
         }}
         renderTrack={renderTrack}
         renderThumb={renderThumb}

@@ -7,7 +7,6 @@ import {
   PhotoWrapper,
   ContentsWrapper,
   Wrapper,
-  FeaturesBox,
   RateBox,
   StarIcon,
   Rate,
@@ -15,36 +14,61 @@ import {
   Description,
   Date,
 } from '@components/domain/experience/styles';
-import Features from '@components/domain/experience/features';
+import Flavor from '@components/domain/create/wrtie/Flavor';
+import { useRouter } from 'next/router';
+import { useGetOneExp } from '../../../hooks/useGetOneExp';
 
-const Experience = () => (
-  <Wrapper>
-    <NavigationHeader canGoBack title="내 게시글" />
-    <PhotoWrapper />
-    <ContentsWrapper>
-      <Category>과실주</Category>
-      <NameBox>
-        <Name>백련 맑은 술</Name>
-        <Brand>신평 양조장</Brand>
-      </NameBox>
-      <FeaturesBox>
-        <Features />
-        <Features />
-        <Features />
-      </FeaturesBox>
-      <RateBox>
-        <StarIcon src="/image/icon/star.svg" />
-        <Rate>4.0</Rate>
-      </RateBox>
-      <DetailBox />
-      <Description>
-        백련 맑은 술 뱅련 말근 술 100련 맑은 술자리어카백련 맑은 술 먹었다리미
-        백련 맑은 술 뱅련 말근 술 100련 맑은 술자리어카백련 맑은 술 먹었다리미
-        백련 맑은 술 뱅련 말근 술 100련 맑은 술자리어카백련 맑은 술 먹었다리미
-      </Description>
-      <Date>2022.07.22</Date>
-    </ContentsWrapper>
-  </Wrapper>
-);
+const Experience = () => {
+  const router = useRouter();
+  const { userSeq, alcholSeq } = router.query;
+  const { data, isLoading } = useGetOneExp({
+    userSeq: Number(userSeq),
+    alcholSeq: Number(alcholSeq),
+    options: {},
+  });
+  const exp = data?.data;
+  return (
+    <Wrapper>
+      <NavigationHeader canGoBack title="내 게시글" />
+      <PhotoWrapper />
+      <ContentsWrapper>
+        <Category>{exp?.type}</Category>
+        <NameBox>
+          <Name>{exp?.name}</Name>
+          <Brand>{exp?.manufacturer}</Brand>
+        </NameBox>
+        <RateBox>
+          <StarIcon src="/image/icon/star.svg" />
+          <Rate>{parseFloat(exp?.star!).toFixed(1)}</Rate>
+        </RateBox>
+        <DetailBox>
+          <Flavor
+            disabled
+            label="향"
+            minLabel="별로다"
+            maxLabel="좋다"
+            data={Number(exp?.incense)}
+          />
+          <Flavor
+            disabled
+            label="맛"
+            minLabel="별로다"
+            maxLabel="좋다"
+            data={Number(exp?.taste)}
+          />
+          <Flavor
+            disabled
+            label="감촉"
+            minLabel="별로다"
+            maxLabel="좋다"
+            data={Number(exp?.texture)}
+          />
+        </DetailBox>
+        <Description>{exp?.etc}</Description>
+        <Date>{exp?.time.split('T')[0]}</Date>
+      </ContentsWrapper>
+    </Wrapper>
+  );
+};
 
 export default Experience;

@@ -25,6 +25,7 @@ import styled from 'styled-components';
 import { useImageUpload } from 'hooks/useImageUpload';
 import { Rating } from 'react-simple-star-rating';
 import { useAuth } from '@components/shared/Auth/AuthProvider';
+import { useRecordUpload } from 'hooks/useRecordUpload';
 import Flavor from './Flavor';
 import DetailFlavor from './DetailFlavor';
 import 'swiper/css';
@@ -104,6 +105,7 @@ const Write = (props: WriteProps) => {
   const [etc, setEtc] = useState('');
 
   const imageUploadMutation = useImageUpload();
+  const recordUploadMutation = useRecordUpload();
 
   useEffect(() => {
     if (photos) {
@@ -154,11 +156,29 @@ const Write = (props: WriteProps) => {
         title="게시글"
         headerRight={{
           label: '완료',
-          onClick: () => {
+          onClick: async () => {
             if (previewImages.length) {
+              recordUploadMutation.mutate({
+                user_seq: user?.seq as number,
+                alchol_seq: Number(props.id),
+                star: rating,
+                abv,
+                incense: abv.toString(),
+                taste: taste.toString(),
+                texture: texture.toString(),
+                time: new Date().toDateString(),
+                flower,
+                fruit,
+                grain,
+                nut,
+                sweetness: sweet,
+                dairy,
+                etc,
+              });
               router.push(`/experience/${props.id}`);
             }
           },
+          disabled: !(previewImages.length > 0),
         }}
       />
       <Swiper spaceBetween={0} slidesPerView={1}>

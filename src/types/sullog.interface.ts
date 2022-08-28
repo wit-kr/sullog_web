@@ -75,3 +75,7 @@ export interface SullogExpResponse {
 export interface SullogOneExpResponse {
   data: Experience;
 }
+
+export interface SullogAllExpResponse {
+  data: Experience[];
+}

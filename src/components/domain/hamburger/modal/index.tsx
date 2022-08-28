@@ -19,6 +19,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { setStorage, STORAGE_KEY } from 'shared/storage';
+import { useAuth } from '@components/shared/Auth/AuthProvider';
 
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
@@ -60,6 +61,10 @@ type modalProps = {
 };
 
 const HamburgerModal = ({ isModalShow, setIsModalShow }: modalProps) => {
+  // 유저 시퀀스 가져오기
+  const { user } = useAuth();
+  const email = user?.email.split('@')[0];
+
   const closeHamburgerModal = () => {
     setIsModalShow(!isModalShow);
   };
@@ -87,7 +92,7 @@ const HamburgerModal = ({ isModalShow, setIsModalShow }: modalProps) => {
         <ContentsBox>
           <TextBox>
             <div>
-              <NickName>이짱구</NickName>
+              <NickName>{email}</NickName>
               <Welcome> 님 환영해요!</Welcome>
             </div>
             <Welcome>오늘도 나만의 술로그를 남겨보아요</Welcome>

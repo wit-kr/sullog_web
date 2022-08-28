@@ -175,7 +175,13 @@ const Write = (props: WriteProps) => {
                 dairy,
                 etc,
               });
-              router.push(`/experience/${props.id}`);
+              router.push({
+                pathname: '/experience/[userSeq]/[alcholSeq]',
+                query: {
+                  userSeq: user?.seq as number,
+                  alcholSeq: Number(props.id),
+                },
+              });
             }
           },
           disabled: !(previewImages.length > 0),

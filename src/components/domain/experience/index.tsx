@@ -21,16 +21,19 @@ import { useGetOneExp } from '../../../hooks/useGetOneExp';
 const Experience = () => {
   const router = useRouter();
   const { userSeq, alcholSeq } = router.query;
+
   const { data, isLoading } = useGetOneExp({
     userSeq: Number(userSeq),
     alcholSeq: Number(alcholSeq),
     options: {},
   });
+
   const exp = data?.data;
+
   return (
     <Wrapper>
       <NavigationHeader canGoBack title="내 게시글" />
-      <PhotoWrapper />
+      <PhotoWrapper src={`data:image/png;base64,${exp?.image_byte[0]}`} />
       <ContentsWrapper>
         <Category>{exp?.type}</Category>
         <NameBox>
@@ -65,7 +68,7 @@ const Experience = () => {
           />
         </DetailBox>
         <Description>{exp?.etc}</Description>
-        <Date>{exp?.time.split('T')[0]}</Date>
+        {/* <Date>{exp?.time.split('T')[0]}</Date> */}
       </ContentsWrapper>
     </Wrapper>
   );

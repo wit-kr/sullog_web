@@ -343,7 +343,6 @@ const SlideImage = styled.img`
 
 const EmptySlideImage = styled.div`
   object-fit: cover;
-  width: 100vw;
   aspect-ratio: 1;
   background-color: #e8e8e8;
 `;

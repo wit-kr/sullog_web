@@ -42,9 +42,7 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
           <RecentContents searchArr={searchArr} setSearchArr={setSearchArr} />
         </RecentContentsWrapper>
       ) : (
-        <ResultContentsWrapper>
-          <Result />
-        </ResultContentsWrapper>
+        <ResultContentsWrapper>{/* <Result /> */}</ResultContentsWrapper>
       )}
     </Container>
   );

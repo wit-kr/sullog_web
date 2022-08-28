@@ -12,9 +12,8 @@ import HamburgerModal from '@components/domain/hamburger/modal';
 const Footer = () => {
   const router = useRouter();
   const [isModalShow, setIsModalShow] = useState<boolean>(false);
-  // const [pathname, setPathname] = useState('');
   const buttonClicked = () => {
-    router.push('/experience');
+    router.push('/explore');
   };
 
   const showModal = () => {
@@ -26,11 +25,11 @@ const Footer = () => {
       <Container>
         <ButtonContainer>
           <FeedButton onClick={buttonClicked}>
-            {/* {pathname === '/explore' ? ( */}
-            {/*   <img src="/image/icon/purplepeople.svg" alt="feed" /> */}
-            {/* ) : ( */}
-            <img src="/image/icon/people.svg" alt="other people" />
-            {/* )} */}
+            {router?.pathname === '/explore' ? (
+              <img src="/image/icon/purplepeople.svg" alt="feed" />
+            ) : (
+              <img src="/image/icon/people.svg" alt="other people" />
+            )}
             <span>둘러보기</span>
           </FeedButton>
           <RecommendButton onClick={showModal}>

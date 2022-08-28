@@ -12,6 +12,7 @@ import { is } from '@babel/types/lib/index-legacy';
 import Result from '@components/domain/search/result';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { expState } from '../../../../atom/atoms';
+import { Experience, SullogData } from '../../../../types/sullog.interface';
 
 type modalProps = {
   isModalShow: boolean;
@@ -24,9 +25,15 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
   );
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
+  const [data, setData] = useState<Experience[] | undefined>(undefined);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   useEffect(() => {
     setSearchArr(JSON.parse(localStorage.getItem('search')!));
   }, [isSubmit]);
+
   return (
     <Container>
       <HeaderWithBack
@@ -36,13 +43,24 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
         setIsSubmit={setIsSubmit}
         isFocus={isFocus}
         setIsFocus={setIsFocus}
+        setData={setData}
       />
       {!isSubmit ? (
         <RecentContentsWrapper>
           <RecentContents searchArr={searchArr} setSearchArr={setSearchArr} />
         </RecentContentsWrapper>
       ) : (
-        <ResultContentsWrapper>{/* <Result /> */}</ResultContentsWrapper>
+        <ResultContentsWrapper>
+          {/* eslint-disable-next-line no-nested-ternary */}
+          {data !== undefined ? (
+            data?.length === 0 ? (
+              <NoResult />
+            ) : (
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              data?.map((item) => <Result {...item} key={item?.seq} />)
+            )
+          ) : null}
+        </ResultContentsWrapper>
       )}
     </Container>
   );

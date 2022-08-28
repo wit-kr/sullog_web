@@ -5,6 +5,7 @@ import {
   Title,
 } from '@components/layout/header/headerWithBack/styles';
 import SearchInputBox from '@components/shared/searchInputBox';
+import { Experience } from '../../../../types/sullog.interface';
 
 type modalProps = {
   isModalShow: boolean;
@@ -13,6 +14,7 @@ type modalProps = {
   setIsSubmit: (isSubmit: boolean) => void;
   isFocus: boolean;
   setIsFocus: (isFocus: boolean) => void;
+  setData: (data: Experience[]) => void;
 };
 
 const HeaderWithBack = ({
@@ -22,6 +24,7 @@ const HeaderWithBack = ({
   setIsSubmit,
   isFocus,
   setIsFocus,
+  setData,
 }: modalProps) => {
   const closeSearchModal = () => {
     setIsModalShow(!isModalShow);
@@ -37,6 +40,7 @@ const HeaderWithBack = ({
         setIsSubmit={setIsSubmit}
         isFocus={isFocus}
         setIsFocus={setIsFocus}
+        setData={setData}
       />
     </Container>
   );

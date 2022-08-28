@@ -5,14 +5,10 @@ import {
 } from '@components/domain/search/modal/styles';
 import HeaderWithBack from '@components/layout/header/headerWithBack';
 import NoResult from '@components/domain/search/noResult';
-import Item from '@components/domain/experience/item';
 import { useEffect, useState } from 'react';
 import RecentContents from '@components/domain/search/recentContents';
-import { is } from '@babel/types/lib/index-legacy';
 import Result from '@components/domain/search/result';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { expState } from '../../../../atom/atoms';
-import { Experience, SullogData } from '../../../../types/sullog.interface';
+import { Experience } from '../../../../types/sullog.interface';
 
 type modalProps = {
   isModalShow: boolean;

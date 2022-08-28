@@ -8,26 +8,20 @@ import {
 } from '@components/shared/searchInputBox/styles';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useAuth } from '@components/shared/Auth/AuthProvider';
-import { useRecoilState } from 'recoil';
 import { useSearchExpWithKeyword } from '../../../hooks/useSearchExpWithKeyword';
-import { expSearchData, expState } from '../../../atom/atoms';
 import { Experience } from '../../../types/sullog.interface';
 
 type inputBoxProps = {
-  isSubmit: boolean;
   setIsSubmit: (isSubmit: boolean) => void;
+  setData: (data: Experience[] | undefined) => void;
+};
+
+const SearchInputBox = ({ setIsSubmit, setData }: inputBoxProps) => {
   isFocus: boolean;
   setIsFocus: (isFocus: boolean) => void;
   setData: (data: Experience[] | undefined) => void;
 };
 
-const SearchInputBox = ({
-  isSubmit,
-  setIsSubmit,
-  isFocus,
-  setIsFocus,
-  setData,
-}: inputBoxProps) => {
   // 유저 시퀀스 가져오기
   const { user } = useAuth();
   const seq = user?.seq;

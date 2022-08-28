@@ -1,4 +1,3 @@
-import {} from '@components/domain/search/modal/styles';
 import {
   DeleteAllButton,
   RecentContentsTitle,
@@ -7,7 +6,7 @@ import {
   RecentItemsBox,
 } from '@components/domain/search/recentContents/styles';
 import RecentItem from '@components/domain/search/recentContents/recentItem';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 type recentContentsProps = {
   searchArr: string[];

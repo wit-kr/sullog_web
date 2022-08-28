@@ -35,13 +35,7 @@ const HeaderWithBack = ({
         <BackButtonIcon src="/image/icon/back.svg" />
       </BackButton>
       <Title src="/image/title.svg" />
-      <SearchInputBox
-        isSubmit={isSubmit}
-        setIsSubmit={setIsSubmit}
-        isFocus={isFocus}
-        setIsFocus={setIsFocus}
-        setData={setData}
-      />
+      <SearchInputBox setIsSubmit={setIsSubmit} setData={setData} />
     </Container>
   );
 };

@@ -8,7 +8,6 @@ import {
   HeaderRightText,
 } from '@components/layout/header/navigationHeader/styles';
 import { useRouter } from 'next/router';
-import { ReactNode } from 'react';
 
 interface HeaderRightProps {
   label: string;

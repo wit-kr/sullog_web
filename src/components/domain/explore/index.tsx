@@ -4,7 +4,6 @@ import {
   NoDataTitle,
   NoDataWrapper,
 } from '@components/domain/explore/styles';
-import NavigationHeader from '@components/layout/header/navigationHeader';
 import Footer from '@components/layout/footer';
 import { useState } from 'react';
 import Layout from '@components/layout';

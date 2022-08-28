@@ -46,18 +46,20 @@ export const Category = styled.div`
 export const NameBox = styled.div`
   margin-top: 16px;
   display: flex;
-  flex-direction: row;
+  //flex-direction: row;
+  flex-direction: column;
 `;
 
 export const Name = styled.h1`
   font-family: 'NotoSansKRRegular';
-  font-size: 2.6rem;
+  //font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.6rem;
 `;
 
 export const Brand = styled.h2`
-  margin-left: 8px;
+  //margin-left: 8px;
   font-family: 'NotoSansKRRegular';
   font-size: 1.4rem;
   line-height: 1.6rem;

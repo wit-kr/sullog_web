@@ -28,7 +28,12 @@ export const DataWrapper = styled.div`
 
 export const ExperienceBox = styled.div`
   background-color: #d9d9d9;
+  width: 99.5%;
+  height: 99.5%;
+  aspect-ratio: 1;
+`;
+
+export const ExperienceImg = styled.img`
   width: 100%;
   height: 100%;
-  aspect-ratio: 1;
 `;

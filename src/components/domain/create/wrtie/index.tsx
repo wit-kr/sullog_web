@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable function-paren-newline */
 /* eslint-disable no-plusplus */
 /* eslint-disable react/jsx-curly-newline */
@@ -24,12 +25,18 @@ import styled from 'styled-components';
 import { useImageUpload } from 'hooks/useImageUpload';
 import { Rating } from 'react-simple-star-rating';
 import { useAuth } from '@components/shared/Auth/AuthProvider';
+import { useRecordUpload } from 'hooks/useRecordUpload';
 import Flavor from './Flavor';
 import DetailFlavor from './DetailFlavor';
 import 'swiper/css';
 
-interface WriteProps {
-  id: number;
+export interface WriteProps {
+  id: string;
+  name: string;
+  type: string;
+  manufacturer: string;
+  abv: string;
+  location: string;
 }
 
 const abvs = ['연하다', '보통이다', '독하다'];
@@ -64,7 +71,16 @@ const nuts = ['땅콩', '밤', '아몬드', '잣'];
 const sweets = ['꿀', '엿기름', '조청', '캬라멜'];
 const dairies = ['버터', '요거트', '우유', '치즈'];
 
-const Write = ({ id }: WriteProps) => {
+const getToday = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = `0${1 + date.getMonth()}`.slice(-2);
+  const day = `0${date.getDate()}`.slice(-2);
+
+  return `${year}.${month}.${day}`;
+};
+
+const Write = (props: WriteProps) => {
   const router = useRouter();
   const { user } = useAuth();
 
@@ -89,13 +105,14 @@ const Write = ({ id }: WriteProps) => {
   const [etc, setEtc] = useState('');
 
   const imageUploadMutation = useImageUpload();
+  const recordUploadMutation = useRecordUpload();
 
   useEffect(() => {
     if (photos) {
       imageUploadMutation.mutate({
         files: photos,
-        user_seq: '1', // user.seq
-        alcohol_seq: id.toString(),
+        user_seq: user?.seq.toString() as string,
+        alcohol_seq: props.id.toString(),
       });
     }
   }, [photos]);
@@ -139,11 +156,29 @@ const Write = ({ id }: WriteProps) => {
         title="게시글"
         headerRight={{
           label: '완료',
-          onClick: () => {
+          onClick: async () => {
             if (previewImages.length) {
-              router.push(`/experience/${id}`);
+              recordUploadMutation.mutate({
+                user_seq: user?.seq as number,
+                alchol_seq: Number(props.id),
+                star: rating,
+                abv,
+                incense: abv.toString(),
+                taste: taste.toString(),
+                texture: texture.toString(),
+                time: new Date().toDateString(),
+                flower,
+                fruit,
+                grain,
+                nut,
+                sweetness: sweet,
+                dairy,
+                etc,
+              });
+              router.push(`/experience/${props.id}`);
             }
           },
+          disabled: !(previewImages.length > 0),
         }}
       />
       <Swiper spaceBetween={0} slidesPerView={1}>
@@ -176,29 +211,29 @@ const Write = ({ id }: WriteProps) => {
           <AlcoholFieldRow>
             <AlcoholField size="wide">
               <AlcoholFieldLabel>술이름</AlcoholFieldLabel>
-              <AlcoholFieldTextValue>백련 맑은 술</AlcoholFieldTextValue>
+              <AlcoholFieldTextValue>{props.name}</AlcoholFieldTextValue>
             </AlcoholField>
             <AlcoholField size="narrow">
               <AlcoholFieldLabel>주종</AlcoholFieldLabel>
-              <AlcoholFieldTextValue>기타</AlcoholFieldTextValue>
+              <AlcoholFieldTextValue>{props.type}</AlcoholFieldTextValue>
             </AlcoholField>
           </AlcoholFieldRow>
           <AlcoholFieldRow>
             <AlcoholField size="wide">
               <AlcoholFieldLabel>브랜드</AlcoholFieldLabel>
-              <AlcoholFieldTextValue>신평 양조장</AlcoholFieldTextValue>
+              <AlcoholFieldTextValue>
+                {props.manufacturer}
+              </AlcoholFieldTextValue>
             </AlcoholField>
             <AlcoholField size="narrow">
               <AlcoholFieldLabel>날짜</AlcoholFieldLabel>
-              <AlcoholFieldTextValue>2022.07.22</AlcoholFieldTextValue>
+              <AlcoholFieldTextValue>{getToday()}</AlcoholFieldTextValue>
             </AlcoholField>
           </AlcoholFieldRow>
           <AlcoholFieldRow>
             <AlcoholField size="fill">
               <AlcoholFieldLabel>지역</AlcoholFieldLabel>
-              <AlcoholFieldTextValue>
-                충청남도 당진시 신평면 신평로 813
-              </AlcoholFieldTextValue>
+              <AlcoholFieldTextValue>{props.location}</AlcoholFieldTextValue>
             </AlcoholField>
           </AlcoholFieldRow>
         </AlcoholFieldContainer>
@@ -239,7 +274,10 @@ const Write = ({ id }: WriteProps) => {
                 </AlcoholDegreeLabel>
               ))}
             </AlcoholDegreeButtons>
-            <AlcoholDegree>실제 도수는 16.5도입니다.</AlcoholDegree>
+            <AlcoholDegree>
+              실제 도수는 {props.abv}
+              입니다.
+            </AlcoholDegree>
           </AlcoholDegreeButtonContainer>
         </AlcholInputContainer>
         <AlcholInputContainer>
@@ -334,7 +372,6 @@ const SlideImage = styled.img`
 
 const EmptySlideImage = styled.div`
   object-fit: cover;
-  width: 100vw;
   aspect-ratio: 1;
   background-color: #e8e8e8;
 `;

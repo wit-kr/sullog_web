@@ -16,12 +16,9 @@ const postImage = ({ files, user_seq, alcohol_seq }: PostImageProps) => {
   });
 
   return axios({
-    method: 'post',
+    method: 'POST',
     url: `/record/imageUpload?user_seq=${user_seq}&alchol_seq=${alcohol_seq}`,
     data: formData,
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
   });
 };
 

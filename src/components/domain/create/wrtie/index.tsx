@@ -70,6 +70,15 @@ const nuts = ['땅콩', '밤', '아몬드', '잣'];
 const sweets = ['꿀', '엿기름', '조청', '캬라멜'];
 const dairies = ['버터', '요거트', '우유', '치즈'];
 
+const getToday = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = `0${1 + date.getMonth()}`.slice(-2);
+  const day = `0${date.getDate()}`.slice(-2);
+
+  return `${year}.${month}.${day}`;
+};
+
 const Write = (props: WriteProps) => {
   const router = useRouter();
   const { user } = useAuth();
@@ -198,7 +207,7 @@ const Write = (props: WriteProps) => {
             </AlcoholField>
             <AlcoholField size="narrow">
               <AlcoholFieldLabel>날짜</AlcoholFieldLabel>
-              <AlcoholFieldTextValue>2022.07.22</AlcoholFieldTextValue>
+              <AlcoholFieldTextValue>{getToday()}</AlcoholFieldTextValue>
             </AlcoholField>
           </AlcoholFieldRow>
           <AlcoholFieldRow>

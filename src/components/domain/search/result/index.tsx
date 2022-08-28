@@ -1,9 +1,8 @@
 import Item from '@components/domain/experience/item';
 import { Experience } from '../../../../types/sullog.interface';
 
-const Result = ({ ...item }: Experience) => {
-  console.log(item);
+const Result = ({ ...item }: Experience) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <Item {...item} />;
-};
+  <Item {...item} />
+);
 export default Result;

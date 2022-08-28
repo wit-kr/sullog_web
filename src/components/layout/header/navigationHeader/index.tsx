@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 interface HeaderRightProps {
   label: string;
   onClick: () => void;
+  disabled?: boolean;
 }
 
 interface NavigationHeaderProps {
@@ -50,7 +51,13 @@ const NavigationHeader = ({
       {/* if headerRight exists, then show headerRight instead of empty div */}
       {headerRight ? (
         <HeaderButton onClick={headerRight.onClick} style={{ right: '2rem' }}>
-          <HeaderRightText>{headerRight.label}</HeaderRightText>
+          <HeaderRightText
+            disabled={
+              headerRight.disabled === undefined ? true : headerRight.disabled
+            }
+          >
+            {headerRight.label}
+          </HeaderRightText>
         </HeaderButton>
       ) : (
         <div />

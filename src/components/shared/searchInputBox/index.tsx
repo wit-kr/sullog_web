@@ -17,6 +17,11 @@ type inputBoxProps = {
 };
 
 const SearchInputBox = ({ setIsSubmit, setData }: inputBoxProps) => {
+  isFocus: boolean;
+  setIsFocus: (isFocus: boolean) => void;
+  setData: (data: Experience[] | undefined) => void;
+};
+
   // 유저 시퀀스 가져오기
   const { user } = useAuth();
   const seq = user?.seq;

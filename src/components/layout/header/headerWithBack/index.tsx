@@ -14,7 +14,7 @@ type modalProps = {
   setIsSubmit: (isSubmit: boolean) => void;
   isFocus: boolean;
   setIsFocus: (isFocus: boolean) => void;
-  setData: (data: Experience[]) => void;
+  setData: (data: Experience[] | undefined) => void;
 };
 
 const HeaderWithBack = ({

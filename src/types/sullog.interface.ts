@@ -46,6 +46,7 @@ export interface Experience {
   seq: number;
   user_seq: number;
   alchol_seq: number;
+  manufacturer: string;
   star: string;
   abv: string;
   incense: string;
@@ -60,4 +61,10 @@ export interface Experience {
   dairy: string;
   etc: string;
   name: string;
+}
+
+export interface SullogExpResponse {
+  code: string;
+  result: string;
+  data: Experience[];
 }

@@ -1,15 +1,19 @@
 import { axios } from 'pages/_app';
 import { useQuery, UseQueryOptions } from 'react-query';
-import { Experience, SullogResponse } from '../types/sullog.interface';
+import {
+  Experience,
+  SullogExpResponse,
+  SullogResponse,
+} from '../types/sullog.interface';
 
 interface SearchExperiencesProps {
   userSeq: number;
   keyword: string;
   options: Omit<
     UseQueryOptions<
-      SullogResponse<Experience>,
+      SullogExpResponse,
       unknown,
-      SullogResponse<Experience>,
+      SullogExpResponse,
       (string | number)[]
     >,
     'queryKey' | 'queryFn'
@@ -22,7 +26,7 @@ export const fetchExperiences = async ({
 }: {
   userSeq: number;
   keyword: string;
-}): Promise<SullogResponse<Experience>> => {
+}): Promise<SullogExpResponse> => {
   const { data } = await axios(
     `/record/searchRecord?user_seq=${userSeq}&keyword=${keyword}`
   );

@@ -66,6 +66,9 @@ const dairies = ['버터', '요거트', '우유', '치즈'];
 
 const Write = ({ id }: WriteProps) => {
   const router = useRouter();
+  const [photos, setPhotos] = useState([]);
+
+  const onChangeImageInput = (e: FormEvent<HTMLInputElement>) => {};
   const { user } = useAuth();
 
   const [photos, setPhotos] = useState<FileList>();

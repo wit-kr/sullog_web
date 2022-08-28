@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Alcohol from './Alcohol';
 import SearchInputBox from './SearchBar';
+import { useSearchExpWithKeyword } from '../../../../hooks/useSearchExpWithKeyword';
 
 const Search = () => {
   const router = useRouter();

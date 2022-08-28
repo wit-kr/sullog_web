@@ -16,7 +16,6 @@ import {
   Date,
 } from '@components/domain/experience/styles';
 import Features from '@components/domain/experience/features';
-import DetailSlider from '@components/domain/experience/detailSlider';
 
 const Experience = () => {
   console.log('experience');
@@ -39,9 +38,7 @@ const Experience = () => {
           <StarIcon src="/image/icon/star.svg" />
           <Rate>4.0</Rate>
         </RateBox>
-        <DetailBox>
-          <DetailSlider />
-        </DetailBox>
+        <DetailBox />
         <Description>
           백련 맑은 술 뱅련 말근 술 100련 맑은 술자리어카백련 맑은 술 먹었다리미
           백련 맑은 술 뱅련 말근 술 100련 맑은 술자리어카백련 맑은 술 먹었다리미

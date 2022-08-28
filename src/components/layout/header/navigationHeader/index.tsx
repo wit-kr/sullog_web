@@ -8,7 +8,6 @@ import {
   HeaderRightText,
 } from '@components/layout/header/navigationHeader/styles';
 import { useRouter } from 'next/router';
-import { ReactNode } from 'react';
 
 interface HeaderRightProps {
   label: string;
@@ -20,12 +19,14 @@ interface NavigationHeaderProps {
   canGoBack: Boolean;
   title?: string;
   headerRight?: HeaderRightProps;
+  titleImage?: string;
 }
 
 const NavigationHeader = ({
   canGoBack,
   title,
   headerRight,
+  titleImage,
 }: NavigationHeaderProps) => {
   const router = useRouter();
 
@@ -43,7 +44,9 @@ const NavigationHeader = ({
       )}
 
       {/* if title exists, then show title instead of image */}
-      {title ? <Title>{title}</Title> : <TitleImage src="/image/title.svg" />}
+      {/* {title ? <Title>{title}</Title> : <TitleImage src="/image/title.svg" />} */}
+      {title ? <Title>{title}</Title> : null}
+      {titleImage ? <TitleImage src={titleImage} /> : null}
 
       {/* if headerRight exists, then show headerRight instead of empty div */}
       {headerRight ? (

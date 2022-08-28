@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 2rem 0 2rem;
+  padding: 5rem 2rem 1.6rem 2rem;
 `;
 
 export const HeaderButton = styled.button`
@@ -28,9 +28,9 @@ export const Title = styled.h1`
   color: #000000;
 `;
 
-export const HeaderRightText = styled.span`
+export const HeaderRightText = styled.span<{ disabled: boolean }>`
   font-weight: 300;
   font-size: 1.4rem;
   line-height: 2.6rem;
-  color: #000000;
+  color: ${({ disabled }) => (disabled ? 'rgba(169, 12, 12, 0.3)' : '#000000')};
 `;

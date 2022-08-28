@@ -22,9 +22,6 @@ const SearchModal = ({ isModalShow, setIsModalShow }: modalProps) => {
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [data, setData] = useState<Experience[] | undefined>(undefined);
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   useEffect(() => {
     setSearchArr(JSON.parse(localStorage.getItem('search')!));

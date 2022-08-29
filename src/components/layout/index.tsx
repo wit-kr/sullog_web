@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React, { Dispatch, SetStateAction } from 'react';
 import Container from '@components/layout/styles';
 import Header from '@components/layout/header';
@@ -9,8 +10,8 @@ import { Experience } from 'types/sullog.interface';
 
 type LayoutProps = {
   children: React.ReactNode;
-  records: Experience[];
-  manufacturerState: {
+  records?: Experience[];
+  manufacturerState?: {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
   };
@@ -40,7 +41,9 @@ const Layout = ({ children, records, manufacturerState }: LayoutProps) => {
     <Container>
       <Header />
       {children}
-      <Slider records={records} manufacturerState={manufacturerState} />
+      {records && manufacturerState ? (
+        <Slider records={records} manufacturerState={manufacturerState} />
+      ) : null}
       <Footer />
     </Container>
   );

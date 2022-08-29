@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import {
   BrandTitle,
   BottomBox,
@@ -12,25 +13,24 @@ import {
   TopTitleBox,
   Wrapper,
 } from '@components/layout/slider/card/styles';
+import { Experience } from 'types/sullog.interface';
 
-const Card = () => (
+const Card = ({ record }: { record: Experience }) => (
   <Wrapper>
     <TopTitleBox>
       <PinImage src="/image/icon/pin.svg" alt="pin" />
-      <Direction>강남구 테헤란로</Direction>
-      <Category>소주</Category>
+      <Direction>
+        {record.province} {record.city}
+      </Direction>
+      <Category>{record.type}</Category>
     </TopTitleBox>
     <BottomBox>
       <LeftBox>
         <TitleBox>
-          <DrinkTitle>술이름</DrinkTitle>
-          <BrandTitle>브랜드</BrandTitle>
+          <DrinkTitle>{record.name}</DrinkTitle>
+          <BrandTitle>{record.manufacturer}</BrandTitle>
         </TitleBox>
-        <Description>
-          테이스팅, 시식, 시음, 맛 평가. 식품 의 질을 맛으로 평가하는 것. 특히
-          버 터, 오일, 푸아그라, 초콜릿 등은 전문 맛 감정사가 있다. 파리 시
-          연구소에
-        </Description>
+        <Description>{record.etc}</Description>
       </LeftBox>
       <RightBox />
     </BottomBox>

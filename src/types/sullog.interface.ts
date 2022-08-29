@@ -44,10 +44,8 @@ export interface AlcoholType {
 
 export interface Experience {
   seq: number;
-  type: string;
   user_seq: number;
   alchol_seq: number;
-  manufacturer: string;
   star: string;
   abv: string;
   incense: string;
@@ -62,8 +60,20 @@ export interface Experience {
   sweetness: string;
   dairy: string;
   etc: string;
-  name: string;
   image_byte: string[];
+  name: string;
+  type: string;
+  abv_num: string;
+  volume: string;
+  price: string;
+  ingredients: string;
+  manufacturer: string;
+  owner: string;
+  lat: string;
+  lng: string;
+  province: string;
+  city: string;
+  phone: string;
 }
 
 export interface SullogExpResponse {

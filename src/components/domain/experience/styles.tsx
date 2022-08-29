@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   max-width: 500px;
   overflow: scroll;
   background-color: white;
+  height: 100vh;
 `;
 
 export const StyledSwiper = styled(Swiper)`
@@ -59,6 +60,7 @@ export const Name = styled.h1`
   font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.6rem;
+  margin-bottom: 0.6rem;
 `;
 
 export const Brand = styled.h2`

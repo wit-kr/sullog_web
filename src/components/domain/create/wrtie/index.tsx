@@ -163,7 +163,7 @@ const Write = (props: WriteProps) => {
                 alchol_seq: Number(props.id),
                 star: rating,
                 abv,
-                incense: abv.toString(),
+                incense: incense.toString(),
                 taste: taste.toString(),
                 texture: texture.toString(),
                 time: new Date().toISOString(),
@@ -375,6 +375,7 @@ const WriterContainer = styled.div``;
 export const SlideImage = styled.img`
   object-fit: cover;
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 1;
 `;
 

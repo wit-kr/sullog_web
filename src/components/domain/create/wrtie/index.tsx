@@ -372,7 +372,7 @@ export default Write;
 
 const WriterContainer = styled.div``;
 
-const SlideImage = styled.img`
+export const SlideImage = styled.img`
   object-fit: cover;
   width: 100%;
   aspect-ratio: 1;

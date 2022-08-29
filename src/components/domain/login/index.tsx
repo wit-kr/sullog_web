@@ -13,23 +13,13 @@ const Login = () => {
   const { access_token, type, email } = router.query;
 
   useEffect(() => {
-    const signInUser = async (
-      token: string,
-      type: 'naver' | 'kakao',
-      email: string
-    ) => {
-      auth.signIn({ token, type, email });
-      router.push('/'); // go to default protected page
-    };
     if (
       typeof access_token === 'string' &&
       (type === 'naver' || type === 'kakao') &&
       typeof email === 'string'
     ) {
       const token = access_token;
-      auth.signIn({ token, type, email });
-
-      router.push('/'); // go to default protected page
+      auth.signIn({ token, type, email, cb: () => router.push('/') });
     }
   }, [router, initializing, user]);
 

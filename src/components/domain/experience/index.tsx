@@ -16,15 +16,19 @@ import {
 } from '@components/domain/experience/styles';
 import Flavor from '@components/domain/create/wrtie/Flavor';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useGetOneExp } from '../../../hooks/useGetOneExp';
 
 const Experience = () => {
   const router = useRouter();
   const { userSeq, alcholSeq } = router.query;
 
-  const { data, isLoading } = useGetOneExp({
-    userSeq: Number(userSeq),
-    alcholSeq: Number(alcholSeq),
+  const [userId, setUserId] = useState(userSeq);
+  const [alcholId, setAlcholId] = useState(alcholSeq);
+
+  const { data, isLoading, refetch } = useGetOneExp({
+    userSeq: Number(userId),
+    alcholSeq: Number(alcholId),
     options: {},
   });
 

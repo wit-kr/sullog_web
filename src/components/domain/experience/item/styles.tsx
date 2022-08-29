@@ -20,8 +20,8 @@ export const RightBox = styled.div`
 
 export const Title = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  //align-items: center;
 `;
 
 export const Drink = styled.h1`
@@ -32,7 +32,8 @@ export const Drink = styled.h1`
 `;
 
 export const Brand = styled.h2`
-  margin-left: 6px;
+  //margin-left: 6px;
+  margin-top: -5px;
   font-family: 'NotoSansKRRegular';
   font-size: 1rem;
   line-height: 2.6rem;

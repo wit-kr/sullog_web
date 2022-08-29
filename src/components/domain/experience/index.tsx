@@ -34,8 +34,6 @@ const Experience = () => {
 
   const exp = data?.data;
 
-  // if (!exp?.abv) refetch();
-
   return (
     <Wrapper>
       <NavigationHeader canGoBack title="내 게시글" />

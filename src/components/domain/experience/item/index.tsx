@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { Experience } from '../../../../types/sullog.interface';
 
 const Item = ({ ...item }: Experience) => {
+  console.log(item);
   const router = useRouter();
   const userSeq = item?.user_seq;
   const alcholSeq = item?.alchol_seq;

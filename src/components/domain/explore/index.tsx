@@ -16,7 +16,11 @@ const Explore = () => {
   const [isData, setIsData] = useState(false);
   useEffect(() => {
     if (experiences !== undefined) {
-      setIsData(true);
+      if (experiences.length === 0) {
+        setIsData(false);
+      } else {
+        setIsData(true);
+      }
     }
   }, [isLoading]);
 

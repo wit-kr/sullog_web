@@ -13,9 +13,11 @@ import {
   DetailBox,
   Description,
   Date,
+  StyledSwiper,
 } from '@components/domain/experience/styles';
 import Flavor from '@components/domain/create/wrtie/Flavor';
 import { useRouter } from 'next/router';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetOneExp } from '../../../hooks/useGetOneExp';
 
 const Experience = () => {
@@ -33,7 +35,13 @@ const Experience = () => {
   return (
     <Wrapper>
       <NavigationHeader canGoBack title="내 게시글" />
-      <PhotoWrapper src={`data:image/png;base64,${exp?.image_byte[0]}`} />
+      <StyledSwiper>
+        {exp?.image_byte.map((img) => (
+          <SwiperSlide>
+            <PhotoWrapper src={`data:image/png;base64,${img}`} />
+          </SwiperSlide>
+        ))}
+      </StyledSwiper>
       <ContentsWrapper>
         <Category>{exp?.type}</Category>
         <NameBox>

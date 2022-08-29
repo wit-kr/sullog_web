@@ -9,21 +9,13 @@ const Home = () => {
   const manufacturerState = { state: manufacturer, setState: setManufacturer };
   const userRecords = useGetAllExp();
 
-  if (userRecords.isError) {
-    return <div>ERROR</div>;
-  }
-
-  if (userRecords.isLoading || userRecords.isIdle) {
-    return <div>Loading,,</div>;
-  }
-
   return (
     <Layout
-      records={userRecords.data.data}
+      records={userRecords.data?.data}
       manufacturerState={manufacturerState}
     >
       <Map
-        records={userRecords.data.data}
+        records={userRecords.data?.data}
         manufacturerState={manufacturerState}
       />
     </Layout>

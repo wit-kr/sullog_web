@@ -10,7 +10,7 @@ import { Experience } from 'types/sullog.interface';
 
 type LayoutProps = {
   children: React.ReactNode;
-  records?: Experience[];
+  records?: Experience[] | undefined;
   manufacturerState?: {
     state: string;
     setState: Dispatch<SetStateAction<string>>;

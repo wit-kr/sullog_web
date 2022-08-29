@@ -47,7 +47,7 @@ const Card = ({ record }: { record: Experience }) => {
           </TitleBox>
           <Description>{record.etc}</Description>
         </LeftBox>
-        <RightBox />
+        <RightBox src={`data:image/png;base64,${record.image_byte[0]}`} />
       </BottomBox>
     </Wrapper>
   );

@@ -27,7 +27,7 @@ export const LeftBox = styled.div`
   width: 220px;
 `;
 
-export const RightBox = styled.div`
+export const RightBox = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 10px;

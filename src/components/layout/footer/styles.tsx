@@ -34,7 +34,7 @@ export const FeedButton = styled.button`
   font-size: 1.2rem;
   text-align: center;
   > img {
-    width: 4vw;
+    width: 8vw;
     max-width: 25px;
     margin-bottom: 5px;
   }
@@ -50,7 +50,7 @@ export const RecommendButton = styled.button`
   font-size: 1.2rem;
   text-align: center;
   > img {
-    width: 4vw;
+    width: 8vw;
     max-width: 20px;
     margin-bottom: 5px;
   }

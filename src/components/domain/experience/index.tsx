@@ -17,7 +17,9 @@ import {
 import Flavor from '@components/domain/create/wrtie/Flavor';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetOneExp } from '../../../hooks/useGetOneExp';
+import { SlideImage } from '../create/wrtie';
 
 const Experience = () => {
   const router = useRouter();
@@ -37,7 +39,14 @@ const Experience = () => {
   return (
     <Wrapper>
       <NavigationHeader canGoBack title="내 게시글" />
-      <PhotoWrapper src={`data:image/png;base64,${exp?.image_byte[0]}`} />
+      <Swiper spaceBetween={0} slidesPerView={1}>
+        {exp?.image_byte.map((image: string) => (
+          <SwiperSlide key={image}>
+            <SlideImage src={`data:image/png;base64,${image}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <PhotoWrapper />
       <ContentsWrapper>
         <Category>{exp?.type}</Category>
         <NameBox>

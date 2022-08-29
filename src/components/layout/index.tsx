@@ -31,7 +31,7 @@ const Layout = ({ children, records, manufacturerState }: LayoutProps) => {
   if (router?.pathname === '/myExperiences') {
     return (
       <Container>
-        <NavigationHeader canGoBack titleImage="/image/title.svg" />
+        <NavigationHeader titleImage="/image/title.svg" />
         {children}
         <Footer />
       </Container>

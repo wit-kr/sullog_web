@@ -39,7 +39,7 @@ const Experience = () => {
   return (
     <Wrapper>
       <NavigationHeader canGoBack title="내 게시글" />
-      <Swiper spaceBetween={0} slidesPerView={1}>
+      <Swiper spaceBetween={0} slidesPerView={1} style={{ width: '100%' }}>
         {exp?.image_byte.map((image: string) => (
           <SwiperSlide key={image}>
             <SlideImage src={`data:image/png;base64,${image}`} />

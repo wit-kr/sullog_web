@@ -20,6 +20,7 @@ import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { setStorage, STORAGE_KEY } from 'shared/storage';
 import { useAuth } from '@components/shared/Auth/AuthProvider';
+import { useRouter } from 'next/router';
 
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
@@ -61,8 +62,9 @@ type modalProps = {
 };
 
 const HamburgerModal = ({ isModalShow, setIsModalShow }: modalProps) => {
+  const router = useRouter();
   // 유저 시퀀스 가져오기
-  const { user } = useAuth();
+  const { user, auth } = useAuth();
   const email = user?.email.split('@')[0];
 
   const closeHamburgerModal = () => {
@@ -112,6 +114,7 @@ const HamburgerModal = ({ isModalShow, setIsModalShow }: modalProps) => {
               title="로그아웃"
               onClick={() => {
                 setStorage(STORAGE_KEY.USER, undefined);
+                router.push('/');
               }}
             />
           </ButtonBox>

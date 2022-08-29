@@ -73,10 +73,12 @@ export class Auth {
     token,
     email,
     type,
+    cb,
   }: {
     token: string;
     email: string;
     type: 'naver' | 'kakao';
+    cb?: () => {};
   }) {
     this.setAxiosHeader([
       { key: 'token', value: token as string },
@@ -107,6 +109,8 @@ export class Auth {
       type,
       seq,
     });
+
+    if (cb) cb();
   }
 }
 

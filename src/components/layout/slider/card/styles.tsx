@@ -39,13 +39,14 @@ export const TopTitleBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 140px;
 `;
 
-export const PinImage = styled.img``;
+export const PinImage = styled.img`
+  margin-right: 5px;
+`;
 
 export const Direction = styled.h2`
+  margin-right: 5px;
   font-family: 'NotoSansKRRegular';
   font-size: 1.2rem;
   font-weight: 500;
@@ -70,11 +71,10 @@ export const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 70px;
 `;
 
 export const DrinkTitle = styled.h1`
+  margin-right: 5px;
   font-family: 'NotoSansKRRegular';
   font-size: 1.4rem;
   font-weight: 500;

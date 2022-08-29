@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Swiper } from 'swiper/react';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,11 +14,16 @@ export const Wrapper = styled.div`
   background-color: white;
 `;
 
-export const PhotoWrapper = styled.img`
+export const StyledSwiper = styled(Swiper)`
   margin-top: 20px;
   width: 100%;
-  height: 360px;
-  background-color: greenyellow;
+  aspect-ratio: 1;
+  background-color: #d9d9d9;
+`;
+
+export const PhotoWrapper = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContentsWrapper = styled.div`

@@ -26,11 +26,12 @@ export const DataWrapper = styled.div`
   padding-bottom: 90px;
 `;
 
-export const ExperienceBox = styled.div`
+export const ExperienceBox = styled.div<{ isError: boolean }>`
   background-color: #d9d9d9;
   width: 99.5%;
   height: 99.5%;
   aspect-ratio: 1;
+  display: ${({ isError }) => (isError ? 'none' : 'block')};
 `;
 
 export const ExperienceImg = styled.img`

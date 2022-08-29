@@ -9,9 +9,10 @@ import Footer from '@components/layout/footer';
 import { useEffect, useState } from 'react';
 import Layout from '@components/layout';
 import { useGetAllExp } from '../../../hooks/useGetAllExp';
+import Box from './Box';
 
 const Explore = () => {
-  const { data, isLoading, isError } = useGetAllExp();
+  const { data, isLoading } = useGetAllExp();
   const experiences = data?.data;
   const [isData, setIsData] = useState(false);
   useEffect(() => {
@@ -33,9 +34,7 @@ const Explore = () => {
       ) : (
         <DataWrapper>
           {experiences?.map((exp) => (
-            <ExperienceBox key={exp?.seq}>
-              <ExperienceImg src={`data:image/png;base64,${exp.image_byte}`} />
-            </ExperienceBox>
+            <Box exp={exp} key={exp.seq} />
           ))}
         </DataWrapper>
       )}

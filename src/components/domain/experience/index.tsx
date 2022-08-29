@@ -81,7 +81,7 @@ const Experience = () => {
           />
         </DetailBox>
         <Description>{exp?.etc}</Description>
-        {/* <Date>{exp?.time.split('T')[0]}</Date> */}
+        <Date>{exp?.time.split('T')[0]}</Date>
       </ContentsWrapper>
     </Wrapper>
   );

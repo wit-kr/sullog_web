@@ -16,7 +16,7 @@ interface HeaderRightProps {
 }
 
 interface NavigationHeaderProps {
-  canGoBack: Boolean;
+  canGoBack?: Boolean;
   title?: string;
   headerRight?: HeaderRightProps;
   titleImage?: string;
@@ -32,6 +32,8 @@ const NavigationHeader = ({
 
   const goBack = () => router.back();
 
+  const goHome = () => router.push('/');
+
   return (
     <Container>
       {/* if can go back, then show go back */}
@@ -40,7 +42,9 @@ const NavigationHeader = ({
           <BackButtonIcon src="/image/icon/back.svg" />
         </HeaderButton>
       ) : (
-        <div />
+        <HeaderButton onClick={goHome} style={{ left: '2rem' }}>
+          <BackButtonIcon src="/image/icon/back.svg" />
+        </HeaderButton>
       )}
 
       {/* if title exists, then show title instead of image */}

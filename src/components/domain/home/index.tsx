@@ -1,9 +1,12 @@
 /* eslint-disable camelcase */
 import Layout from '@components/layout';
 import { useGetAllExp } from 'hooks/useGetAllExp';
+import { useState } from 'react';
 import Map from './Map';
 
 const Home = () => {
+  const [manufacturer, setManufacturer] = useState('');
+  const manufacturerState = { state: manufacturer, setState: setManufacturer };
   const userRecords = useGetAllExp();
 
   if (userRecords.isError) {
@@ -14,11 +17,15 @@ const Home = () => {
     return <div>Loading,,</div>;
   }
 
-  console.log(userRecords.data.data[0]);
-
   return (
-    <Layout>
-      <Map records={userRecords.data.data} />
+    <Layout
+      records={userRecords.data.data}
+      manufacturerState={manufacturerState}
+    >
+      <Map
+        records={userRecords.data.data}
+        manufacturerState={manufacturerState}
+      />
     </Layout>
   );
 };

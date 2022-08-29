@@ -3,8 +3,16 @@
 import { GeoJSONSource, LngLatBoundsLike, MapLayerMouseEvent } from 'mapbox-gl';
 import ReactMapGL, { Layer, Marker, Source, useMap } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { createRef, useEffect, useRef, useState } from 'react';
+import {
+  createRef,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import type { MapRef } from 'react-map-gl';
+import { Experience } from 'types/sullog.interface';
 import {
   clusterCountBackgroundLayer,
   clusterCountLayer,
@@ -43,11 +51,20 @@ const MapImage = ({ id, src }: { id: string; src: string }) => {
   return null;
 };
 
-const Map = ({ records }: { records: any }) => {
+const Map = ({
+  records,
+  manufacturerState,
+}: {
+  records: Experience[];
+  manufacturerState: {
+    state: string;
+    setState: Dispatch<SetStateAction<string>>;
+  };
+}) => {
   const mapRef = useRef<MapRef>(null);
   const [data, setData] = useState({
     type: 'FeatureCollection',
-    features: records.map((record: any) => ({
+    features: records.map((record: Experience) => ({
       type: 'Feature',
       properties: {
         name: record.name,
@@ -89,8 +106,10 @@ const Map = ({ records }: { records: any }) => {
         }
 
         if (feature.layer.id === 'unclustered-point') {
-          console.log(feature.properties);
+          manufacturerState.setState(feature.properties.manufacturer);
         }
+      } else {
+        manufacturerState.setState('');
       }
     }
   };

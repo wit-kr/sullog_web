@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import Container from '@components/layout/styles';
 import Header from '@components/layout/header';
 import Footer from '@components/layout/footer';
 import NavigationHeader from '@components/layout/header/navigationHeader';
 import { useRouter } from 'next/router';
 import Slider from '@components/layout/slider';
+import { Experience } from 'types/sullog.interface';
 
 type LayoutProps = {
   children: React.ReactNode;
+  records: Experience[];
+  manufacturerState: {
+    state: string;
+    setState: Dispatch<SetStateAction<string>>;
+  };
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, records, manufacturerState }: LayoutProps) => {
   const router = useRouter();
   if (router?.pathname === '/explore') {
     return (
@@ -34,7 +40,7 @@ const Layout = ({ children }: LayoutProps) => {
     <Container>
       <Header />
       {children}
-      <Slider />
+      <Slider records={records} manufacturerState={manufacturerState} />
       <Footer />
     </Container>
   );

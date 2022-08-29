@@ -158,7 +158,7 @@ const Write = (props: WriteProps) => {
           label: '완료',
           onClick: async () => {
             if (previewImages.length) {
-              recordUploadMutation.mutate({
+              const res = await recordUploadMutation.mutateAsync({
                 user_seq: user?.seq as number,
                 alchol_seq: Number(props.id),
                 star: rating,
@@ -166,7 +166,7 @@ const Write = (props: WriteProps) => {
                 incense: abv.toString(),
                 taste: taste.toString(),
                 texture: texture.toString(),
-                time: new Date().toDateString(),
+                time: new Date().toISOString(),
                 flower,
                 fruit,
                 grain,
@@ -175,13 +175,15 @@ const Write = (props: WriteProps) => {
                 dairy,
                 etc,
               });
-              router.push({
-                pathname: '/experience/[userSeq]/[alcholSeq]',
-                query: {
-                  userSeq: user?.seq as number,
-                  alcholSeq: Number(props.id),
-                },
-              });
+              if (res.data.code === '200') {
+                router.push({
+                  pathname: '/experience/[userSeq]/[alcholSeq]',
+                  query: {
+                    userSeq: user?.seq as number,
+                    alcholSeq: Number(props.id),
+                  },
+                });
+              }
             }
           },
           disabled: !(previewImages.length > 0),

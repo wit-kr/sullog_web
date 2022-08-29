@@ -55,7 +55,7 @@ const Map = ({
   records,
   manufacturerState,
 }: {
-  records: Experience[];
+  records: Experience[] | undefined;
   manufacturerState: {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
@@ -64,7 +64,7 @@ const Map = ({
   const mapRef = useRef<MapRef>(null);
   const [data, setData] = useState({
     type: 'FeatureCollection',
-    features: records.map((record: Experience) => ({
+    features: records?.map((record: Experience) => ({
       type: 'Feature',
       properties: {
         name: record.name,
@@ -78,6 +78,25 @@ const Map = ({
       },
     })),
   });
+
+  useEffect(() => {
+    setData({
+      type: 'FeatureCollection',
+      features: records?.map((record: Experience) => ({
+        type: 'Feature',
+        properties: {
+          name: record.name,
+          seq: record.seq,
+          type: record.type,
+          manufacturer: record.manufacturer,
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [Number(record.lat), Number(record.lng)],
+        },
+      })),
+    });
+  }, [records]);
 
   const onClick = (event: any) => {
     if (mapRef.current) {

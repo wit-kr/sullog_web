@@ -21,10 +21,7 @@ export const StyledSwiper = styled(Swiper)`
   background-color: #d9d9d9;
 `;
 
-export const PhotoWrapper = styled.img`
-  width: 100%;
-  height: 100%;
-`;
+export const PhotoWrapper = styled.img``;
 
 export const ContentsWrapper = styled.div`
   display: flex;

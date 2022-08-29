@@ -36,7 +36,7 @@ const Experience = () => {
 
   return (
     <Wrapper>
-      <NavigationHeader canGoBack title="내 게시글" />
+      <NavigationHeader title="내 게시글" />
       <PhotoWrapper src={`data:image/png;base64,${exp?.image_byte[0]}`} />
       <ContentsWrapper>
         <Category>{exp?.type}</Category>
@@ -72,7 +72,7 @@ const Experience = () => {
           />
         </DetailBox>
         <Description>{exp?.etc}</Description>
-        {/* <Date>{exp?.time.split('T')[0]}</Date> */}
+        <Date>{exp?.time.split('T')[0]}</Date>
       </ContentsWrapper>
     </Wrapper>
   );

@@ -22,7 +22,9 @@ const Card = ({ record }: { record: Experience }) => (
       <Direction>
         {record.province} {record.city}
       </Direction>
-      <Category>{record.type}</Category>
+      <Category>
+        {record.type === '소주/증류주' ? '소주' : record.type}
+      </Category>
     </TopTitleBox>
     <BottomBox>
       <LeftBox>
